@@ -98,6 +98,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ <scriptasset('js/app.js') }}"></script>
 </body>
 </html>

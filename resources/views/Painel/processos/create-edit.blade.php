@@ -107,14 +107,25 @@
 
                 <div class="panel-body">
                         <div class="form-group">
-                            <label for="data_acid" class="col-md-4 control-label">Data e hora</label>
+                            <label for="data_acid" class="col-md-4 control-label">Data</label>
 
                             <div class="col-md-6">
-                            <!--    {!!Form::input('text', 'data_acid', \Carbon\Carbon::create()->format('d/m/Y H:i:s'), ['class'=>'form-control'])!!} -->                   
-                          {!! Form::datetime('data_acid', \Carbon\Carbon::now(), ['class'=>'form-control'])!!}
+                           <!--   {!!Form::input('text', 'data_acid', \Carbon\Carbon::create()->format('d/m/Y H:i:s'), ['class'=>'form-control'])!!} -->                   
+                              {!! Form::date('data_acid', \Carbon\Carbon::now(), ['class'=>'form-control'])!!}
+                              <!--     {!! Form::datetime('data_acid', \Carbon\Carbon::now(), ['class'=>'form-control'])!!} -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="hora_acid" class="col-md-4 control-label">Hora</label>
+
+                            <div class="col-md-6">
+                                <input id="hora_acid" type="text" class="form-control tempo" name="hora_acid" value="{{ old('hora_acid') }}" required autofocus>
+
                             </div>
                         </div>
 
+                    
+                    
                         <div class="form-group">
                             <label for="local_acid" class="col-md-4 control-label">Local</label>
 
@@ -189,11 +200,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="data_hosp" class="col-md-4 control-label">Data e hora</label>
+                            <label for="data_hosp" class="col-md-4 control-label">Data</label>
 
                             <div class="col-md-6">
-                                {!! Form::datetime('data_hosp', \Carbon\Carbon::now(), ['class'=>'form-control'])!!}
-      
+                                {!! Form::date('data_hosp', \Carbon\Carbon::now(), ['class'=>'form-control'])!!}
+                       
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="hora_hosp" class="col-md-4 control-label">Hora</label>
+
+                            <div class="col-md-6">
+                                <input id="hora_hosp" type="text" class="form-control tempo" name="hora_hosp" value="{{ old('hora_hosp') }}" required autofocus>
+
                             </div>
                         </div>
 
@@ -236,11 +255,19 @@
                 <div class="panel-body">
 
                      <div class="form-group">
-                            <label for="data_aud" class="col-md-4 control-label">Data e hora</label>
+                            <label for="data_aud" class="col-md-4 control-label">Data</label>
 
                             <div class="col-md-6">
-                                {!! Form::datetime('data_aud', \Carbon\Carbon::now(), ['class'=>'form-control'])!!}
-      
+                                {!! Form::date('data_aud', \Carbon\Carbon::now(), ['class'=>'form-control'])!!}
+                       
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="hora_aud" class="col-md-4 control-label">Hora</label>
+
+                            <div class="col-md-6">
+                                <input id="hora_aud" type="text" class="form-control tempo" name="hora_aud" value="{{ old('hora_acid') }}" required autofocus>
+
                             </div>
                         </div>
 

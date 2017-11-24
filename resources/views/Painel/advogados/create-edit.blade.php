@@ -31,7 +31,7 @@
                 <div class="panel-body">
 
                        <div class="form-group">
-                            <label for="nome" class="col-md-4 control-label">Nome</label>
+                            <label for="nome" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Nome</label>
 
                             <div class="col-md-6">
                                 <input id="nome" type="text" class="form-control" name="nome" required>
@@ -42,8 +42,10 @@
                             <label for="oab" class="col-md-4 control-label">OAB</label>
 
                             <div class="col-md-6">
-                                <input id="oab" type="text" class="form-control" name="oab" required>
-
+                            <!--   <input id="oab" type="text" class="data" name="oab" required> -->
+                            <input id="oab" type="text" class="form-control data" name="oab" required> 
+                                
+<!-- <input type="text" name="oab" data-mask="00/00/0000" /> --> 
                             </div>
                         </div>
                         

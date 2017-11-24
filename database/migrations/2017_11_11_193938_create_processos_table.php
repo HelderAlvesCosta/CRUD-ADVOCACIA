@@ -23,7 +23,8 @@ class CreateProcessosTable extends Migration
             $table->string('vara',20);
             $table->string('camara',20);            
             
-            $table->dateTime('data_acid');
+            $table->date('data_acid');
+            $table->string('hora_acid',6);
             $table->string('local_acid',20);
             $table->string('tipo_veiculo_acid',20);
             $table->string('modelo_acid',20);
@@ -31,11 +32,13 @@ class CreateProcessosTable extends Migration
             $table->string('dp_acid',20);
            
             $table->string('lesao_hosp',20);
-            $table->dateTime('data_hosp');
+            $table->date('data_hosp');
+            $table->string('hora_hosp',6);
             $table->string('local_hosp',20);
             $table->string('sala_hosp',20);
         
-            $table->dateTime('data_aud',20);
+            $table->date('data_aud');
+            $table->string('hora_aud',6);
             $table->string('local_aud',20);
             $table->string('sala_aud',20);
             $table->float('valor_condenação_aud',8,2);

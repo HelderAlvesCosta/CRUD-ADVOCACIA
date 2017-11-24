@@ -2,8 +2,23 @@
 
 @section('Content')
     <h1 class="title-pg">Listagem dos Advogados</h1>
-    
-    <a href="{{route('advogados.create')}}" class="btn btn-primary btn-add"><span class="glyphicon glyphicon-plus"> </span>Cadastrar </a>  
+  
+  <!-- INICIO   -->  
+  <form action="/search" method="POST" role="search">
+    {{ csrf_field() }}
+    <div class="input-group  col-xs-4 pull-right">
+        <input type="text" class="form-control" name="q"
+            placeholder="Search users" > <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+    </div>
+</form>
+  
+  <!-- FIM   -->  
+  
+    <a href="{{route('advogados.create')}}" class="btn btn-primary btn-add "><span class="glyphicon glyphicon-plus"> </span>Cadastrar </a>  
   
     <table class="table table-striped">
         <tr>
