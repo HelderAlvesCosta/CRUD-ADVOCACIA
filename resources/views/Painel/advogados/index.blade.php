@@ -4,17 +4,17 @@
     <h1 class="title-pg">Listagem dos Advogados</h1>
   
   <!-- INICIO   -->  
-  <form action="/search" method="POST" role="search">
+  <form action="/crud_advocacia/public/searchAdvogado" method="POST" role="search">
     {{ csrf_field() }}
     <div class="input-group  col-xs-4 pull-right">
         <input type="text" class="form-control" name="q"
-            placeholder="Search users" > <span class="input-group-btn">
+            placeholder="Pesquisa advogados" > <span class="input-group-btn">
             <button type="submit" class="btn btn-default">
                 <span class="glyphicon glyphicon-search"></span>
             </button>
         </span>
     </div>
-</form>
+  </form>
   
   <!-- FIM   -->  
   
@@ -30,7 +30,8 @@
           <th width="100px">Ações</th>
         </tr>
       
-        @foreach($advogados as $advogado)
+       @if(isset($advogados))
+       @foreach($advogados as $advogado)
        <tr>
             <td>{{$advogado->nome}}</td>
             <td>{{$advogado->oab}}</td>     
@@ -47,9 +48,12 @@
             </td>     
 
        </tr>
-    
         @endforeach
-    
+        @elseif(isset($message))
+	   <p style="color:red;font-size:160%;">{{ $message }}</p>
+	@endif
     </table>
-{!! $advogados->links()!!}
+ @if(isset($advogados))
+   {!! $advogados->links()!!}
+  @endif
 @endsection

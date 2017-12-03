@@ -31,106 +31,110 @@
                 <div class="panel-body">
 
                        <div class="form-group">
-                            <label for="nome" class="col-md-4 control-label">Nome</label>
+                            <label for="nome" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Nome</label>
 
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control" name="nome" required>
+                                <input id="nome" type="text" class="form-control" name="nome" value="{{$requerente->nome or old('nome')}}" required>
 
                             </div>
                         </div>
                          <div class="form-group">
-                            <label for="sexo" class="col-md-4 control-label">Sexo</label>
+                            <label for="sexo" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Sexo</label>
 
                             <div class="col-md-6">
-                                <input id="sexo" type="text" class="form-control" name="sexo" required>
+                               {!!Form::select('sexo',$sexo,null,['class' => 'form-control',])!!}
 
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="nacionalidade" class="col-md-4 control-label">Nacionalidade</label>
+                            <label for="nacionalidade" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Nacionalidade</label>
 
                             <div class="col-md-6">
-                                <input id="nacionalidade" type="text" class="form-control" name="nacionalidade" required>
+                               {!!Form::select('nacionalidade',$nacionalidade,null,['class' => 'form-control',])!!}
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado_civil" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Estado civil</label>
+
+                            <div class="col-md-6">
+                                 {!!Form::select('estado_civil',$estado_civil,null,['class' => 'form-control',])!!}
+
+                            </div>
+                        </div>
+
+                
+                        <div class="form-group">
+                            <label for="profissao" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Profissão</label>
+
+                            <div class="col-md-6">
+                                <input id="profissao" type="text" class="form-control" name="profissao" value="{{$requerente->profissao or old('profissao')}}" required>
 
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="estado_civil" class="col-md-4 control-label">Estado civil</label>
+                            <label for="rg" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>RG</label>
 
                             <div class="col-md-6">
-                                <input id="estado_civil" type="text" class="form-control" name="estado_civil" required>
-
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="profissao" class="col-md-4 control-label">Profissão</label>
-
-                            <div class="col-md-6">
-                                <input id="profissao" type="text" class="form-control" name="profissao" required>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="rg" class="col-md-4 control-label">RG</label>
-
-                            <div class="col-md-6">
-                                <input id="rg" type="text" class="form-control" name="rg" required>
-
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="cpf" class="col-md-4 control-label">CPF</label>
-
-                            <div class="col-md-6">
-                                <input id="cpf" type="text" class="form-control" name="cpf" required>
+                                <input id="rg" type="text" class="form-control" name="rg" value="{{$requerente->rg or old('rg')}}" required>
 
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="endereco" class="col-md-4 control-label">Endereço</label>
+                            <label for="cpf" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>CPF</label>
 
                             <div class="col-md-6">
-                                <input id="endereco" type="text" class="form-control" name="endereco" required>
+                                <input id="cpf" type="text" class="form-control cpf" name="cpf" value="{{$requerente->cpf or old('cpf')}}" required>
+
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="endereco" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Endereço</label>
+
+                            <div class="col-md-6">
+                                <input id="endereco" type="text" class="form-control" name="endereco" value="{{$requerente->endereco or old('endereco')}}" required>
 
                             </div>
                         </div>
                        
                         <div class="form-group">
-                            <label for="bairro" class="col-md-4 control-label">Bairro</label>
+                            <label for="bairro" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Bairro</label>
 
                             <div class="col-md-6">
-                                <input id="bairro" type="text" class="form-control" name="bairro" required>
+                                <input id="bairro" type="text" class="form-control" name="bairro" value="{{$requerente->bairro or old('bairro')}}" required>
 
                             </div>
                         </div>
-                       
-                        <div class="form-group">
-                            <label for="cidade" class="col-md-4 control-label">Cidade</label>
+                 
+                             <div class="form-group">
+                            <label for="uf" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>UF</label>
 
                             <div class="col-md-6">
-                                <input id="cidade" type="text" class="form-control" name="cidade" required>
-
+                                <select id="uf" type="text" class="form-control" name="uf" value="{{$advogado->uf or old('uf')}}"></select>
                             </div>
                         </div>
-                       
-                        <div class="form-group">
-                            <label for="uf" class="col-md-4 control-label">UF</label>
+                     <div class="form-group">
+                            <label for="cidade" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Cidade</label>
 
                             <div class="col-md-6">
-                                <input id="uf" type="text" class="form-control" name="uf" required>
-
+                                <select id="cidade" type="text" class="form-control" name="cidade" value="{{$advogado->cidade or old('cidade')}}"></select>
                             </div>
                         </div>
-                       
+                        
+                          <script language="JavaScript" type="text/javascript" charset="utf-8">
+      new dgCidadesEstados({
+        cidade: document.getElementById('cidade'),
+        estado: document.getElementById('uf')
+      })
+    </script>
                         <div class="form-group">
-                            <label for="cep" class="col-md-4 control-label">CEP</label>
+                            <label for="cep" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>CEP</label>
 
                             <div class="col-md-6">
-                                <input id="cep" type="text" class="form-control" name="cep" required>
+                                <input id="cep" type="text" class="form-control cep" name="cep" value="{{$requerente->cep or old('cep')}}" required>
 
                             </div>
                         </div>
@@ -141,7 +145,7 @@
                             <label for="telefone" class="col-md-4 control-label">Telefone</label>
 
                             <div class="col-md-6">
-                                <input id="telefone" type="text" class="form-control" name="telefone" required>
+                                <input id="telefone" type="text" class="form-control tel" name="telefone" value="{{$requerente->nome or old('telefone')}}">
 
                             </div>
                         </div>
@@ -149,7 +153,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" required>
+                                <input id="email" type="text" class="form-control" name="email" value="{{$requerente->email or old('email')}}">
 
                             </div>
                         </div>
@@ -157,7 +161,7 @@
                             <label for="banco" class="col-md-4 control-label">Banco</label>
 
                             <div class="col-md-6">
-                                <input id="banco" type="text" class="form-control" name="banco" required>
+                                <input id="banco" type="text" class="form-control" name="banco" value="{{$requerente->banco or old('banco')}}">
 
                             </div>
                         </div>
@@ -166,7 +170,7 @@
                             <label for="agencia" class="col-md-4 control-label">Agência</label>
 
                             <div class="col-md-6">
-                                <input id="agencia" type="text" class="form-control" name="agencia" required>
+                                <input id="agencia" type="text" class="form-control" name="agencia" value="{{$requerente->agencia or old('agencia')}}">
 
                             </div>
                         </div>
@@ -175,7 +179,7 @@
                             <label for="conta" class="col-md-4 control-label">Conta</label>
 
                             <div class="col-md-6">
-                                <input id="conta" type="text" class="form-control" name="conta" required>
+                                <input id="conta" type="text" class="form-control" name="conta" value="{{$requerente->conta or old('conta')}}">
 
                             </div>
                         </div>
@@ -184,7 +188,7 @@
                             <label for="tipo" class="col-md-4 control-label">Tipo</label>
 
                             <div class="col-md-6">
-                                <input id="tipo" type="text" class="form-control" name="tipo" required>
+                                <input id="tipo" type="text" class="form-control" name="tipo" value="{{$requerente->tipo or old('tipo')}}">
 
                             </div>
                         </div>

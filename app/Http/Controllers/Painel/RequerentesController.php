@@ -44,7 +44,11 @@ class RequerentesController extends Controller
     public function create()
     {
         $title ='Cadastrar novo requerente';
-        return view('painel.requerentes.create-edit',compact('title'));
+        $estado_civil =['Solteiro','Casado','Separado','Divorciado','Viúvo'];
+        $sexo =['Masculino','Feminino'];
+        $nacionalidade =['Brasileira','Estrangeira'];
+       
+        return view('painel.requerentes.create-edit',compact('title','estado_civil','sexo','nacionalidade'));
     }
 
     /**

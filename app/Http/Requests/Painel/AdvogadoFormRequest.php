@@ -24,13 +24,21 @@ class AdvogadoFormRequest extends FormRequest
     public function rules()
     {
         return [
-           'nome'        => 'required|min:3|max:100'
+           'nome'        => 'required|min:15|max:50',
+           'oab'         => 'required',
+           'uf'          => 'required',
+           'cidade'      => 'required'
         ];
     }
     
     public function messages(){
         return[
-            'nome.required'      => 'O campo é de preenchimento obrigatório'
+            'nome.required'      => 'O campo Nome é de preenchimento obrigatório',
+            'nome.min'           => 'O campo Nome deve ter no mínimo 15 caracteres',
+            'oab.required'       => 'O campo OAB é de preenchimento obrigatório',
+            'uf.required'        => 'O campo UF é de preenchimento obrigatório',
+            'cidade.required'    => 'O campo Cidade é de preenchimento obrigatório'
+           
             ];
     }
 }

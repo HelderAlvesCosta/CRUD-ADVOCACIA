@@ -65,6 +65,25 @@
                             <a class="navbar-brand" href="{{ url('/painel/processos') }}">
                                 Processos
                             </a> 
+<!-- INICIO -->      
+                           <li class="dropdown">
+                                <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Lesões <span class="caret"></span>
+                                </a>
+   
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                       <a class="navbar-brand" href="{{ url('/painel/dadoscorporais') }}">
+                                           Dados corporais
+                                       </a> 
+                                       <a class="navbar-brand" href="{{ url('/painel/grupovalores') }}">
+                                           Grupo valores
+                                       </a> 
+                                      
+                                    </li>
+                                </ul>
+                            </li>
+        <!-- FIM -->
                             <a class="navbar-brand" href="{{ url('/painel/status') }}">
                                     Status
                             </a> 
@@ -98,6 +117,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ <scriptasset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

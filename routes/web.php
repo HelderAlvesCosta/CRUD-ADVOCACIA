@@ -1,5 +1,10 @@
 <?php
-
+use App\Model\Painel\Advogado;
+use App\Model\Painel\Corretore;
+use App\Model\Painel\Requerente;
+use App\Model\Painel\Processo;
+use App\Model\Painel\Statu;
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -98,6 +103,9 @@ Route::resource('/painel/corretores', 'Painel\CorretoresController');
 Route::resource('/painel/requerentes', 'Painel\RequerentesController');
 Route::resource('/painel/status', 'Painel\StatusController');
 Route::resource('/painel/processos', 'Painel\ProcessosController');
+Route::resource('/painel/grupovalores', 'Painel\GrupoValoresController');
+Route::resource('/painel/dadoscorporais', 'Painel\DadoCorporaisController');
+
 
 Route::get('/painel/Andamentos/index/{id}',['as'=>'andamentos.index','uses'=>'Painel\AndamentosController@index']);
 Route::get('/painel/Andamentos/create/{id}',['as'=>'andamentos.create','uses'=>'Painel\AndamentosController@create']);
@@ -108,3 +116,77 @@ Route::delete('/painel/Andamentos/{id}',['as'=>'andamentos.destroy','uses'=>'Pai
 Route::get('/painel/Andamentos/{id}',['as'=>'andamentos.view','uses'=>'Painel\AndamentosController@view']);
 Route::get('/painel/Andamentos/show/{id}',['as'=>'andamentos.show','uses'=>'Painel\AndamentosController@show']);
 
+Route::post( '/searchAdvogado', function () {
+	$q = Input::get ( 'q' );
+	$advogados = Advogado::where ( 'nome', 'LIKE', '%' . $q . '%')->paginate(11);
+        $message = 'Nada encontrado. Tente pesquisar novamente !';
+	$title = 'Listagem dos Advogados';
+                
+        if (count ( $advogados ) > 0){
+           return view('painel.advogados.index',compact('advogados','title'));
+        }
+        else{
+            return view('painel.advogados.index',compact('message','title'));
+        }
+                
+} );
+
+Route::post( '/searchCorretore', function () {
+	$q = Input::get ( 'q' );
+	$corretores = Corretore::where ( 'nome', 'LIKE', '%' . $q . '%')->paginate(11);
+        $message = 'Nada encontrado. Tente pesquisar novamente !';
+	$title = 'Listagem dos Corretores';
+                
+        if (count ( $corretores ) > 0){
+           return view('painel.corretores.index',compact('corretores','title'));
+        }
+        else{
+            return view('painel.corretores.index',compact('message','title'));
+        }
+                
+} );
+
+Route::post( '/searchRequerente', function () {
+	$q = Input::get ( 'q' );
+	$requerentes = Requerente::where ( 'nome', 'LIKE', '%' . $q . '%')->paginate(11);
+        $message = 'Nada encontrado. Tente pesquisar novamente !';
+	$title = 'Listagem dos Requerentes';
+                
+        if (count ( $requerentes ) > 0){
+           return view('painel.requerentes.index',compact('requerentes','title'));
+        }
+        else{
+            return view('painel.requerentes.index',compact('message','title'));
+        }
+                
+} );
+
+Route::post( '/searchProcesso', function () {
+	$q = Input::get ( 'q' );
+	$processos = Processo::where ( 'numero', 'LIKE', '%' . $q . '%')->paginate(11);
+        $message = 'Nada encontrado. Tente pesquisar novamente !';
+	$title = 'Listagem dos Processos';
+                
+        if (count ( $processos ) > 0){
+           return view('painel.processos.index',compact('processos','title'));
+        }
+        else{
+            return view('painel.processos.index',compact('message','title'));
+        }
+                
+} );
+
+Route::post( '/searchStatu', function () {
+	$q = Input::get ( 'q' );
+	$status = Statu::where ( 'nome', 'LIKE', '%' . $q . '%')->paginate(11);
+        $message = 'Nada encontrado. Tente pesquisar novamente !';
+	$title = 'Listagem dos Status';
+                
+        if (count ( $status ) > 0){
+           return view('painel.status.index',compact('status','title'));
+        }
+        else{
+            return view('painel.status.index',compact('message','title'));
+        }
+                
+} );

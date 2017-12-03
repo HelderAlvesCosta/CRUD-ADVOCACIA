@@ -34,34 +34,50 @@
                             <label for="nome" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Nome</label>
 
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control" name="nome" required>
+                                <input id="nome" type="text" class="form-control" name="nome" value="{{$advogado->nome or old('nome')}}" required>
 
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="oab" class="col-md-4 control-label">OAB</label>
+                            <label for="oab" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>OAB</label>
 
                             <div class="col-md-6">
                             <!--   <input id="oab" type="text" class="data" name="oab" required> -->
-                            <input id="oab" type="text" class="form-control data" name="oab" required> 
+                            <input id="oab" type="text" class="form-control" name="oab" value="{{$advogado->oab or old('oab')}}" > 
                                 
 <!-- <input type="text" name="oab" data-mask="00/00/0000" /> --> 
                             </div>
                         </div>
-                        
+                        <!-- INICIO -->
+                        <!-- FIM    -->
                         <div class="form-group">
-                            <label for="uf" class="col-md-4 control-label">UF</label>
+                            <label for="uf" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>UF</label>
 
                             <div class="col-md-6">
-                                <input id="uf" type="text" class="form-control" name="uf" required>
-
+                                <select id="uf" type="text" class="form-control" name="uf" value="{{$advogado->uf or old('uf')}}"></select>
                             </div>
                         </div>
+                     <div class="form-group">
+                            <label for="cidade" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Cidade</label>
+
+                            <div class="col-md-6">
+                                <select id="cidade" type="text" class="form-control" name="cidade" value="{{$advogado->cidade or old('cidade')}}"></select>
+                            </div>
+                        </div>
+                        
+                          <script language="JavaScript" type="text/javascript" charset="utf-8">
+      new dgCidadesEstados({
+        cidade: document.getElementById('cidade'),
+        estado: document.getElementById('uf')
+      })
+    </script>
+                        
+                        
                         <div class="form-group">
                             <label for="telefone" class="col-md-4 control-label">Telefone</label>
 
                             <div class="col-md-6">
-                                <input id="telefone" type="text" class="form-control" name="telefone" required>
+                                <input id="telefone" type="text" class="form-control tel" name="telefone" value="{{$advogado->telefone or old('telefone')}}">
 
                             </div>
                         </div>
@@ -69,7 +85,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" required>
+                                <input id="email" type="text" class="form-control" name="email" value="{{$advogado->email or old('email')}}">
 
                             </div>
                         </div>

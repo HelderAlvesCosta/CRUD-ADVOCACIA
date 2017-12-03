@@ -4,7 +4,7 @@
 
 <h1 class="title-pg">
     <a href="{{route('corretores.index')}}"> <span class='glyphicon glyphicon-fast-backward'> </span> </a>
-    Gestão Ccorretor: <b> {{$corretore->nome or 'Novo'}}</b>
+    Gestão Corretor: <b> {{$corretore->nome or 'Novo'}}</b>
 </h1>
 
 @if( isset($errors) && count($errors) > 0  )
@@ -31,71 +31,77 @@
                 <div class="panel-body">
 
                        <div class="form-group">
-                            <label for="nome" class="col-md-4 control-label">Nome</label>
+                            <label for="nome" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Nome</label>
 
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control" name="nome" required>
+                                <input id="nome" type="text" class="form-control" name="nome" value="{{$corretore->nome or old('nome')}}" required>
 
                             </div>
                         </div>
                          <div class="form-group">
-                            <label for="rg" class="col-md-4 control-label">RG</label>
+                            <label for="rg" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>RG</label>
 
                             <div class="col-md-6">
-                                <input id="rg" type="text" class="form-control" name="rg" required>
+                                <input id="rg" type="text" class="form-control" name="rg" value="{{$corretore->rg or old('rg')}}" required>
 
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="cpf" class="col-md-4 control-label">CPF</label>
+                            <label for="cpf" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>CPF</label>
 
                             <div class="col-md-6">
-                                <input id="cpf" type="text" class="form-control" name="cpf" required>
+                                <input id="cpf" type="text" class="form-control cpf" name="cpf" value="{{$corretore->cpf or old('cpf')}}" required>
 
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="endereco" class="col-md-4 control-label">Endereço</label>
+                            <label for="endereco" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Endereço</label>
 
                             <div class="col-md-6">
-                                <input id="endereco" type="text" class="form-control" name="endereco" required>
+                                <input id="endereco" type="text" class="form-control" name="endereco" value="{{$corretore->endereco or old('endereco')}}" required>
 
                             </div>
                         </div>
                        
                         <div class="form-group">
-                            <label for="bairro" class="col-md-4 control-label">Bairro</label>
+                            <label for="bairro" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Bairro</label>
 
                             <div class="col-md-6">
-                                <input id="bairro" type="text" class="form-control" name="bairro" required>
+                                <input id="bairro" type="text" class="form-control" name="bairro" value="{{$corretore->bairro or old('bairro')}}" required>
 
                             </div>
                         </div>
-                       
-                        <div class="form-group">
-                            <label for="cidade" class="col-md-4 control-label">Cidade</label>
+                     
+                            <div class="form-group">
+                            <label for="uf" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>UF</label>
 
                             <div class="col-md-6">
-                                <input id="cidade" type="text" class="form-control" name="cidade" required>
-
+                                <select id="uf" type="text" class="form-control" name="uf" value="{{$corretore->uf or old('uf')}}" required></select>
                             </div>
                         </div>
-                       
-                        <div class="form-group">
-                            <label for="uf" class="col-md-4 control-label">UF</label>
+                     <div class="form-group">
+                            <label for="cidade" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Cidade</label>
 
                             <div class="col-md-6">
-                                <input id="uf" type="text" class="form-control" name="uf" required>
-
+                                <select id="cidade" type="text" class="form-control" name="cidade" value="{{$corretore->cidade or old('cidade')}}" required></select>
                             </div>
                         </div>
-                       
+                        
+                
+    <script language="JavaScript" type="text/javascript" charset="utf-8">
+      new dgCidadesEstados({
+        cidade: document.getElementById('cidade'),
+        estado: document.getElementById('uf')
+      })
+    </script>
+
+                     
                         <div class="form-group">
-                            <label for="cep" class="col-md-4 control-label">CEP</label>
+                            <label for="cep" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>CEP</label>
 
                             <div class="col-md-6">
-                                <input id="cep" type="text" class="form-control" name="cep" required>
+                                <input id="cep" type="text" class="form-control cep" name="cep" value="{{$corretore->cep or old('cep')}}" required>
 
                             </div>
                         </div>
@@ -106,7 +112,7 @@
                             <label for="telefone" class="col-md-4 control-label">Telefone</label>
 
                             <div class="col-md-6">
-                                <input id="telefone" type="text" class="form-control" name="telefone" required>
+                                <input id="telefone" type="text" class="form-control tel" name="telefone" value="{{$corretore->telefone or old('telefone')}}">
 
                             </div>
                         </div>
@@ -114,7 +120,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" required>
+                                <input id="email" type="text" class="form-control" name="email" value="{{$corretore->email or old('email')}}">
 
                             </div>
                         </div>
@@ -123,7 +129,7 @@
                             <label for="comissao" class="col-md-4 control-label">Comissão</label>
 
                             <div class="col-md-6">
-                                <input id="comissao" type="text" class="form-control" name="comissao" required>
+                                <input id="comissao" type="text" class="form-control " name="comissao" value="{{$corretore->comissao or old('comissao')}}" >
 
                             </div>
                         </div>
@@ -131,7 +137,7 @@
                             <label for="banco" class="col-md-4 control-label">Banco</label>
 
                             <div class="col-md-6">
-                                <input id="banco" type="text" class="form-control" name="banco" required>
+                                <input id="banco" type="text" class="form-control" name="banco" value="{{$corretore->banco or old('banco')}}">
 
                             </div>
                         </div>
@@ -140,7 +146,7 @@
                             <label for="agencia" class="col-md-4 control-label">Agência</label>
 
                             <div class="col-md-6">
-                                <input id="agencia" type="text" class="form-control" name="agencia" required>
+                                <input id="agencia" type="text" class="form-control" name="agencia" value="{{$corretore->agencia or old('agencia')}}">
 
                             </div>
                         </div>
@@ -149,7 +155,7 @@
                             <label for="conta" class="col-md-4 control-label">Conta</label>
 
                             <div class="col-md-6">
-                                <input id="conta" type="text" class="form-control" name="conta" required>
+                                <input id="conta" type="text" class="form-control" name="conta" value="{{$corretore->conta or old('conta')}}">
 
                             </div>
                         </div>
@@ -158,7 +164,7 @@
                             <label for="tipo" class="col-md-4 control-label">Tipo</label>
 
                             <div class="col-md-6">
-                                <input id="tipo" type="text" class="form-control" name="tipo" required>
+                                <input id="tipo" type="text" class="form-control" name="tipo" value="{{$corretore->tipo or old('tipo')}}">
 
                             </div>
                         </div>

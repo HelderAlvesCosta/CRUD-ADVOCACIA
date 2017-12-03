@@ -17,17 +17,17 @@ class CreateCorretoresTable extends Migration
             $table->increments('id');
             $table->string('nome',50);
             $table->string('rg',13);
-            $table->string('cpf',11);
+            $table->string('cpf',14);
             $table->string('endereco',100);
             $table->string('bairro',40);
             $table->string('cidade',40);
             $table->string('uf',2);
-            $table->string('cep',8);
+            $table->string('cep',10);
 
             $table->string('telefone',15);
             $table->string('email',100);
           
-            $table->decimal('comissao', 8, 2);
+            $table->decimal('comissao', 12, 2);
             
             $table->string('banco',15);
             $table->string('agencia',5);

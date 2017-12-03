@@ -16,18 +16,18 @@ class CreateRequerentesTable extends Migration
         Schema::create('requerentes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome',50);
-            $table->char('sexo',1);
+            $table->string('sexo',10);
             $table->string('nacionalidade',20);
-            $table->char('estado_civil',1);
+            $table->string('estado_civil',10);
             $table->string('profissao',40);
 
             $table->string('rg',13);
-            $table->string('cpf',11);
+            $table->string('cpf',14);
             $table->string('endereco',100);
             $table->string('bairro',40);
             $table->string('cidade',40);
             $table->string('uf',2);
-            $table->string('cep',8);
+            $table->string('cep',10);
 
 
             $table->string('telefone',15);

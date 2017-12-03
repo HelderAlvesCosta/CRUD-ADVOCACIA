@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Model\Painel\Processo;
 use App\Model\Painel\Requerente;
 use App\Model\Painel\Advogado;
+use App\Model\Painel\Corporai;
+use App\Model\Painel\Processolesoe;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
 use App\Http\Requests\Painel\ProcessoFormRequest;
@@ -19,13 +21,18 @@ class ProcessosController extends Controller
     private $processo;
     private $requerente;  
     private $advogado;
+    private $processolesoe;
+    private $corporai;
+  
     private $totalPag = 11;
     
-    public function __construct(Processo $processo,Requerente $requerente,Advogado $advogado){
+    public function __construct(Processo $processo,Requerente $requerente,Advogado $advogado,Processolesoe $processolesoe,Corporai $corporai){
         
         $this->processo = $processo;
         $this->requerente = $requerente;
         $this->advogado = $advogado;
+        $this->processolesoe = $processolesoe;
+        $this->corporai = $corporai;
 
     }
 
@@ -53,8 +60,9 @@ class ProcessosController extends Controller
         $title ='Cadastrar novo processo';
         $requerentes = $this->requerente->all();
         $advogados = $this->advogado->all();
+        $corporais = $this->corporai->all();
       
-        return view('painel.processos.create-edit',compact('title','requerentes','advogados'));
+        return view('painel.processos.create-edit',compact('title','requerentes','advogados','corporais'));
     }
 
     /**
@@ -101,7 +109,12 @@ class ProcessosController extends Controller
         $processo = $this->processo->find($id);
         
         $title = "Editar processo: {$processo->nome}";
-        return view('painel.processos.create-edit',compact('title','processo'));
+        $requerentes = $this->requerente->all();
+        $advogados = $this->advogado->all();
+        $corporais = $this->corporai->all();
+        $processolesoes = $this->processolesoe->where('processo_id',$id)->get();
+             
+        return view('painel.processos.create-edit',compact('title','processo','requerentes','advogados','processolesoes','corporais'));
     }
 
     /**
@@ -113,7 +126,14 @@ class ProcessosController extends Controller
      */
     public function update(ProcessoFormRequest $request, $id)
     {
+
        $dataForm = $request->all();
+        $processo = $this->processo->find($id);
+       $delete = $this->processolesoe->where('processo_id',$id)->delete();
+       
+       foreach($dataForm['opcoes'] as $item){
+          $this->processolesoe->insert(['processo_id' => $id,'corporai_id' => $item]);
+       }    
        $processo = $this->processo->find($id);
        $update = $processo->update($dataForm);
         if ( $update )
@@ -121,6 +141,8 @@ class ProcessosController extends Controller
         else
            //- return redirect()->back(); 
             return redirect()->route('processos.edit',$id)->with(['errors' => 'Falha ao editar']);
+
+        
     }
 
     /**
