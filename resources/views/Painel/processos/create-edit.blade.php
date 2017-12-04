@@ -15,21 +15,19 @@
 @endif
 
 @if( isset($processo) ) 
-    {!!Form::model($processo,['route' => ['processos.update',$processo->id],'class' => 'form','method' => 'put' ])!!}
+    {!!Form::model($processo,['route' => ['processos.update',$processo->id],'id' => 'myform','name' => 'myform', 'class' => 'form','method' => 'put' ])!!}
 @else
-    {!!Form::open(['route' => 'processos.store','class' => 'form'])!!} 
+    {!!Form::open(['route' => 'processos.store','id' => 'myform','name' => 'myform','class' => 'form'])!!} 
 @endif
 
     <input type="hidden" name="_token" value="{{csrf_token()}}">
-    <!-- Helder 10 /////////////////////////////////////////////////////////////// --> 
   
-    <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-md-9 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Processo</div>
-
-                <div class="panel-body">
+                <div class="panel-heading" style="color:red" >Processo</div>
+<div class="panel-body">
 
                         <div class="form-group">
                             <label for="numero" class="col-md-4 control-label">Número do processo</label>
@@ -41,14 +39,12 @@
                         </div>
                     
  
- <!-- Requerente inicio -->
- 
                         <div class="form-group">
                             <label for="cod_requerente" class="col-md-4 control-label">Nome do Requerente</label>
 
                             <div class="col-md-6">
                           <!--  <select name='cod_requerente' class='form-control'> -->
-             <select data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                 <select data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
       
                                   @foreach($requerentes as $requerente)
                                     <option value='{{$requerente->id}}' 
@@ -68,22 +64,22 @@
                             <label for="cod_advogado" class="col-md-4 control-label">Nome do Advogado</label>
 
                             <div class="col-md-6">
-                            <select name='cod_advogado' class='form-control'>
-                                  <option>Escolha o Advogado </option>
+                           
+                                <select data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+      
                                   @foreach($advogados as $advogado)
-                                    <option value='{{$advogado->id}}'
+                                    <option value='{{$advogado->id}}' 
                                             @if(isset($processo) && $processo->cod_advogado == $advogado->id)
                                                 selected
                                             @endif
                                             >{{$advogado->nome}}</option>
      
                                   @endforeach
-                            </select> 
+                            </select>  
                               
                             </div>
                         </div>
-        
-                    
+         
                         <div class="form-group">
                             <label for="comarca" class="col-md-4 control-label">Comarca</label>
 
@@ -107,91 +103,79 @@
 
                             </div>
                         </div>
-         
-   <!-- Acidente - inicio -->
-    <div class="container" >
-    <div class="row" >
-        <div class="col-md-8 col-md-offset-0">
-            <div class="panel panel-default">
-                <div class="panel-heading">Acidente</div>
+                </div>
+       
 
-                <div class="panel-body">
-                        <div class="form-group">
-                            <label for="data_acid" class="col-md-4 control-label">Data</label>
+<!-- Acidente - inicio -->
+                        <div class="container" >
+                            <div class="row" >
+                                <div class="col-md-8 col-md-offset-0">
+                                     <div class="panel panel-default">
+                                        <div class="panel-heading">Acidente</div>
 
-                            <div class="col-md-6">
-@if( isset($processo) ) 
-   {!! Form::date('data_acid', \Carbon\Carbon::parse($processo->data_acid)->format('Y-m-d'), ['class'=>'form-control'])!!} 
-@else
-   {!! Form::date('data_acid', \Carbon\Carbon::now(), ['class'=>'form-control'])!!} 
-@endif   
-                            <!--     {!! Form::datetime('data_acid', \Carbon\Carbon::now(), ['class'=>'form-control'])!!} -->
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="hora_acid" class="col-md-4 control-label">Hora</label>
+                                            <div class="panel-body">
+                                                <div class="form-group">
+                                                    <label for="data_acid" class="col-md-4 control-label">Data</label>
+                                                      <div class="col-md-6">
+                                                         @if( isset($processo) ) 
+                                                            {!! Form::date('data_acid', \Carbon\Carbon::parse($processo->data_acid)->format('Y-m-d'), ['class'=>'form-control'])!!} 
+                                                         @else
+                                                            {!! Form::date('data_acid', \Carbon\Carbon::now(), ['class'=>'form-control'])!!} 
+                                                         @endif   
+                                                     </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label for="hora_acid" class="col-md-4 control-label">Hora</label>
+                                                        <div class="col-md-6">
+                                                          <input id="hora_acid" type="text" class="form-control tempo" name="hora_acid" value="{{$processo->hora_acid or old('hora_acid')}}" required autofocus>
+                                                        </div>
+                                                </div>
+                 
+                                                <div class="form-group">
+                                                    <label for="local_acid" class="col-md-4 control-label">Local</label>
 
-                            <div class="col-md-6">
-                                <input id="hora_acid" type="text" class="form-control tempo" name="hora_acid" value="{{$processo->hora_acid or old('hora_acid')}}" required autofocus>
+                                                    <div class="col-md-6">
+                                                        <input id="local_acid" type="text" class="form-control" name="local_acid" value="{{$processo->local_acid or old('local_acid')}}" required>
+                                                    </div>
+                                                </div>
 
-                            </div>
-                        </div>
+                                                <div class="form-group">
+                                                   <label for="tipo_veiculo_acid" class="col-md-4 control-label">Tipo de veículo</label>
+                                                    <div class="col-md-6">
+                                                       <input id="tipo_veiculo_acid" type="text" class="form-control" name="tipo_veiculo_acid" value="{{$processo->tipo_veiculo_acid or old('tipo_veiculo_acid')}}" required>
+                                                    </div>
+                                                </div>
 
+                                                <div class="form-group">
+                                                    <label for="modelo_acid" class="col-md-4 control-label">Modelo do veículo</label>
+
+                                                    <div class="col-md-6">
+                                                       <input id="modelo_acid" type="text" class="form-control" name="modelo_acid" value="{{$processo->modelo_acid or old('modelo_acid')}}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                   <label for="numero_boletim_acid" class="col-md-4 control-label">Número do boletim</label>
+                                                <div class="col-md-6">
+                                                   <input id="numero_boletim_acid" type="text" class="form-control" name="numero_boletim_acid" value="{{$processo->numero_boletim_acid or old('numero_boletim_acid')}}" required>
+                                                </div>
+                                            </div>
                     
-                    
-                        <div class="form-group">
-                            <label for="local_acid" class="col-md-4 control-label">Local</label>
+                                            <div class="form-group">
+                                              <label for="dp_acid" class="col-md-4 control-label">DP</label>
 
-                            <div class="col-md-6">
-                                <input id="local_acid" type="text" class="form-control" name="local_acid" value="{{$processo->local_acid or old('local_acid')}}" required>
+                                              <div class="col-md-6">
+                                                 <input id="dp_acid" type="text" class="form-control" name="dp_acid" value="{{$processo->dp_acid or old('dp_acid')}}" required>
 
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                         <div class="form-group">
-                            <label for="tipo_veiculo_acid" class="col-md-4 control-label">Tipo de veículo</label>
-
-                            <div class="col-md-6">
-                                <input id="tipo_veiculo_acid" type="text" class="form-control" name="tipo_veiculo_acid" value="{{$processo->tipo_veiculo_acid or old('tipo_veiculo_acid')}}" required>
-
-                            </div>
-                        </div>
-
-                         <div class="form-group">
-                            <label for="modelo_acid" class="col-md-4 control-label">Modelo do veículo</label>
-
-                            <div class="col-md-6">
-                                <input id="modelo_acid" type="text" class="form-control" name="modelo_acid" value="{{$processo->modelo_acid or old('modelo_acid')}}" required>
-
-                            </div>
-                        </div>
-
-                     <div class="form-group">
-                            <label for="numero_boletim_acid" class="col-md-4 control-label">Número do boletim</label>
-
-                            <div class="col-md-6">
-                                <input id="numero_boletim_acid" type="text" class="form-control" name="numero_boletim_acid" value="{{$processo->numero_boletim_acid or old('numero_boletim_acid')}}" required>
-
-                            </div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <label for="dp_acid" class="col-md-4 control-label">DP</label>
-
-                            <div class="col-md-6">
-                                <input id="dp_acid" type="text" class="form-control" name="dp_acid" value="{{$processo->dp_acid or old('dp_acid')}}" required>
-
-                            </div>
-                        </div>
-
-                    
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Acidente Fim -->
-
+                  
+    <!-- Acidente Fim -->
 
 <!-- Hospital Inicio -->
 
@@ -207,24 +191,10 @@
     
   
                         <div class="form-group">
-                            <label for="numero" class="col-md-5 control-label">Selecionar Lesão</label>
+                            <label for="numero" class="col-md-5 control-label">Selecionar Lesôes</label>
 
-                            <div class="col-md-7">
-                            <label for="numero" class="col-md-7 control-label text-right">Selecionado</label>
-
-                            </div>
-                        </div>
-  <div class="form-group">
-    <select id='opcoes' multiple='multiple'>
-    <option value='elem_1' selected>xxxxxxxxx1xxxxxxxxx2xxxxxxxxx3xxxxxxxxx4xxxxxxxxx5xxxxxx</option>
-    <option value='elem_2'>elem 2</option>
-    <option value='elem_3'>elem 3</option>
-    <option value='elem_4' selected>elem 4</option>
-    ...
-    <option value='elem_100'>elem 100</option>
-  </select>
-      
- <!--     <select id="opcoes" name="opcoes[]" class="col-md-4 control-label" multiple="multiple" >
+                              </div>
+     <select id="opcao" name="opcoes[]" class="chosen-select-width" multiple > 
     
         @foreach($corporais as $corporai)
             <option value='{{$corporai->id}}'
@@ -241,11 +211,7 @@
      
         @endforeach
  
-    </select> -->
-      
-   
-  </div>
-  <!-- FIM SELECTED   -->
+    </select> 
  
  
                         <div class="form-group">
@@ -296,7 +262,8 @@
 
 
 <!-- Hospital  Fim -->
-                    
+
+
 <!-- Audiência  Inicio -->
 
  <div class="container">
@@ -383,17 +350,18 @@
             
         </div>
     </div>
+ </div>
+ </div>
+ </div>
+
+
+            </div>
+        </div>
+    </div>
 </div>
+                    
 
-
-<!-- Audiência  Fim -->
-
-
-
-   
-       
- <!--  {!!Form::submit('Enviar',['class' => 'btn btn-primary'])!!} -->
-
+      
   {!!Form::close(['route' => 'processos.store','class' => 'form'])!!} 
 
 @endsection

@@ -23,28 +23,35 @@
         </div>   
         
        <!-- Script INICIO -->
-             <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-       <script type="text/javascript" src="{{ asset('js/jquery.mask.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/jquery.maskMoney.min.js') }}"></script> 
+            <script type="text/javascript" src="{{ asset('js/jquery.maskedinput.min.js') }}"></script> 
+      
        <script type="text/javascript" src="{{ asset('js/jquery.multi-select.js') }}"></script>
        <script type="text/javascript" src="{{ asset('js/chosen.jquery.js') }}"></script>
        <script type="text/javascript" src="{{ asset('js/prism.js') }}"></script>
        <script type="text/javascript" src="{{ asset('js/init.js') }}"></script>
        
        <script>
-           $(document).ready(function(){
-           $('.data').mask('00/00/0000');
-           });
-           $('.tempo').mask('00:00:00');
-           $('.data_tempo').mask('00/00/0000 00:00:00');
-           $('.cep').mask('00000-000');
-           $('.tel').mask('(00) 00000-0000');
-           $('.ddd_tel').mask('(00) 0000-0000');
-           $('.cpf').mask('000.000.000-00');
-           $('.cnpj').mask('00.000.000/0000-00');
-           $('.dinheiro').mask('0000000,00' , { reverse : true});
-           $('.dinheiro2').mask("#.##0,00" , { reverse:true});
+        $( document ).ready( function(){
+		// Aqui fazemos uso do plugin MASKED INPUT
+		$("#data").mask("99/99/9999");
+		$("#cpf").mask("999.999.999-99");
+		$("#telefone").mask("(99) 9999-9999");
+		$("#celular").mask("(99)99999-9999");
+		// Aqui fazemos uso do plugin MASK MONEY
+		$("#valor_condenação_aud").maskMoney({prefix:'R$ ', thousands:'.',decimal:','});
+                $("#myform").submit(function () {
+                      var cpfValue = $("#valor_condenação_aud").val();
+
+                     // Remove os caracteres que não são dígitos:
+                    cpfValue = cpfValue.replace(/\D/g, '');
+
+       // Atualiza o valor no campo do formulário:
+                      $("#valor_condenação_aud").val( cpfValue );
+                     });
+              }); 
        </script>
-       
       
  
        <!-- Script FIM -->

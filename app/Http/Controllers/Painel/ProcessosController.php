@@ -130,7 +130,7 @@ class ProcessosController extends Controller
        $dataForm = $request->all();
         $processo = $this->processo->find($id);
        $delete = $this->processolesoe->where('processo_id',$id)->delete();
-       
+     //  return $dataForm['valor_condenação_aud'];
        foreach($dataForm['opcoes'] as $item){
           $this->processolesoe->insert(['processo_id' => $id,'corporai_id' => $item]);
        }    
