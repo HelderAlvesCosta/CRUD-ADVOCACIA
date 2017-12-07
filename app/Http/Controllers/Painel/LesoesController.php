@@ -4,22 +4,23 @@ namespace App\Http\Controllers\Painel;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Painel\Corporai;
+use App\Model\Painel\Lesoe;
 use App\Model\Painel\Grupovalore;
 
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
-use App\Http\Requests\Painel\CorporaiFormRequest;
+use App\Http\Requests\Painel\LesoeFormRequest;
 
-class DadoCorporaisController extends Controller
+class LesoesController extends Controller
 {
-    private $dadoscorporai;
+    
+    private $lesoe;
     private $grupovalore;
     private $totalPag = 11;
     
-    public function __construct(Corporai $dadoscorporai,Grupovalore $grupovalore){
+    public function __construct(Lesoe $lesoe,Grupovalore $grupovalore){
         
-        $this->dadoscorporai = $dadoscorporai;
+        $this->lesoe = $lesoe;
         $this->grupovalore = $grupovalore;
     }
 
@@ -30,9 +31,9 @@ class DadoCorporaisController extends Controller
      */
     public function index()
     {
-        $title = 'Listagem dos Dados Corporais';
-        $dadoscorporais = $this->dadoscorporai->paginate($this->totalPag);
-        return view('painel.dadoscorporais.index',compact('dadoscorporais','title'));
+        $title = 'Listagem das Lesões';
+        $lesoes = $this->lesoe->paginate($this->totalPag);
+        return view('painel.lesoes.index',compact('lesoes','title'));
     }
 
     /**
@@ -42,9 +43,10 @@ class DadoCorporaisController extends Controller
      */
     public function create()
     {
-        $title ='Cadastrar novo Dado corporal';
+        $title ='Cadastrar nova Lesão';
         $grupovalores = $this->grupovalore->all();
-        return view('painel.dadoscorporais.create-edit',compact('title','grupovalores'));
+        return view('painel.lesoes.create-edit',compact('title','grupovalores'));
+  
     }
 
     /**
@@ -53,15 +55,16 @@ class DadoCorporaisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CorporaiFormRequest $request)
+    public function store(LesoeFormRequest $request)
     {
         $dataForm = $request->all();
      
-        $insert = $this->dadoscorporai->create($dataForm);
+        $insert = $this->lesoe->create($dataForm);
         if ( $insert )
-            return redirect()->route('dadoscorporais.index');
+            return redirect()->route('lesoes.index');
         else
-            return redirect()->route('dadoscorporais.create');
+            return redirect()->route('lesoes.create');
+   
     }
 
     /**
@@ -72,10 +75,10 @@ class DadoCorporaisController extends Controller
      */
     public function show($id)
     {
-        $dadoscorporais = $this->dadoscorporai->find($id);
-        $title = "Grupo valor: {$dadoscorporai->id}";
+        $lesoes = $this->lesoe->find($id);
+        $title = "Grupo valor: {$lesoe->id}";
     
-        return view('painel.dadoscorporais.show',compact('dadoscorporais','title'));
+        return view('painel.lesoes.show',compact('lesoes','title'));
 
     }
 
@@ -87,10 +90,11 @@ class DadoCorporaisController extends Controller
      */
     public function edit($id)
     {
-        $dadoscorporais = $this->dadoscorporai->find($id);
+        $lesoe = $this->lesoe->find($id);
         $grupovalores = $this->grupovalore->all();
-        $title = "Editar Dado corporal: {$dadoscorporai->id}";
-        return view('painel.dadoscorporais.create-edit',compact('title','dadoscorporais','grupovalores'));
+        $title = "Editar Lesão: {$lesoe->id}";
+        return view('painel.lesoes.create-edit',compact('title','lesoe','grupovalores'));
+    
     }
 
     /**
@@ -100,16 +104,17 @@ class DadoCorporaisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CorporaiFormRequest $request, $id)
+    public function update(LesoeFormRequest $request, $id)
     {
        $dataForm = $request->all();
-       $dadoscorporai = $this->dadoscorporai->find($id);
-       $update = $gdadoscorporai->update($dataForm);
+       $lesoe = $this->lesoe->find($id);
+       $update = $lesoe->update($dataForm);
         if ( $update )
-            return redirect()->route('dadoscorporais.index');
+            return redirect()->route('lesoes.index');
         else
            //- return redirect()->back(); 
-            return redirect()->route('dadoscorporais.edit',$id)->with(['errors' => 'Falha ao editar']);
+            return redirect()->route('lesoes.edit',$id)->with(['errors' => 'Falha ao editar']);
+   
     }
 
     /**
@@ -120,12 +125,13 @@ class DadoCorporaisController extends Controller
      */
     public function destroy($id)
     {
-        $dadoscorporai = $this->dadoscorporai->find($id);
-        $delete = $dadoscorporai->delete();
+        $lesoe = $this->lesoe->find($id);
+        $delete = $lesoe->delete();
         if ( $delete )
-            return redirect()->route('dadoscorporais.index');
+            return redirect()->route('lesoes.index');
         else
            //- return redirect()->back(); 
-            return redirect()->route('dadoscorporais.show',$id)->with(['errors' => 'Falha ao deletar']);
+            return redirect()->route('lesoes.show',$id)->with(['errors' => 'Falha ao deletar']);
+   
     }
 }

@@ -15,9 +15,9 @@
 @endif
 
 @if( isset($grupovalore) ) 
-    {!!Form::model($grupovalore,['route' => ['grupovalores.update',$grupovalore->id],'class' => 'form','method' => 'put' ])!!}
+    {!!Form::model($grupovalore,['route' => ['grupovalores.update',$grupovalore->id],'id' => 'myformgrupo','name' => 'myformgrupo','class' => 'form','method' => 'put' ])!!}
 @else
-    {!!Form::open(['route' => 'grupovalores.store','class' => 'form'])!!} 
+    {!!Form::open(['route' => 'grupovalores.store','id' => 'myformgrupo','name' => 'myformgrupo','class' => 'form'])!!} 
 @endif
 
 <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -34,7 +34,7 @@
                             <label for="valor" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Valor</label>
 
                             <div class="col-md-6">
-                                <input id="valor" type="text" class="form-control" name="valor" value="{{$grupovalor->valor or old('valor')}}" required>
+                                <input id="valor" type="text" class="form-control" name="valor" value="{{$grupovalore->valor or old('valor')}}" required>
                             </div>
                         </div>
                        

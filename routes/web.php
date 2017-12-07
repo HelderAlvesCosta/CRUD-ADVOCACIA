@@ -104,7 +104,7 @@ Route::resource('/painel/requerentes', 'Painel\RequerentesController');
 Route::resource('/painel/status', 'Painel\StatusController');
 Route::resource('/painel/processos', 'Painel\ProcessosController');
 Route::resource('/painel/grupovalores', 'Painel\GrupoValoresController');
-Route::resource('/painel/dadoscorporais', 'Painel\DadoCorporaisController');
+Route::resource('/painel/lesoes', 'Painel\LesoesController');
 
 
 Route::get('/painel/Andamentos/index/{id}',['as'=>'andamentos.index','uses'=>'Painel\AndamentosController@index']);
@@ -187,6 +187,21 @@ Route::post( '/searchStatu', function () {
         }
         else{
             return view('painel.status.index',compact('message','title'));
+        }
+                
+} );
+
+Route::post( '/searchLesoe', function () {
+	$q = Input::get ( 'q' );
+	$lesoes = Statu::where ( 'nome', 'LIKE', '%' . $q . '%')->paginate(11);
+        $message = 'Nada encontrado. Tente pesquisar novamente !';
+	$title = 'Listagem das Lesões';
+                
+        if (count ( $status ) > 0){
+           return view('painel.lesoes.index',compact('lesoes','title'));
+        }
+        else{
+            return view('painel.lesoes.index',compact('message','title'));
         }
                 
 } );

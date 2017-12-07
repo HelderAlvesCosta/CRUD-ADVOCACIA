@@ -44,11 +44,11 @@ class RequerentesController extends Controller
     public function create()
     {
         $title ='Cadastrar novo requerente';
-        $estado_civil =['Solteiro','Casado','Separado','Divorciado','Viúvo'];
-        $sexo =['Masculino','Feminino'];
-        $nacionalidade =['Brasileira','Estrangeira'];
+        $estado_civis =['Solteiro','Casado','Separado','Divorciado','Viúvo'];
+        $sexos =['Masculino','Feminino'];
+        $nacionalidades =['Brasileira','Estrangeira'];
        
-        return view('painel.requerentes.create-edit',compact('title','estado_civil','sexo','nacionalidade'));
+        return view('painel.requerentes.create-edit',compact('title','estado_civis','sexos','nacionalidades'));
     }
 
     /**
@@ -96,7 +96,10 @@ class RequerentesController extends Controller
         $requerente = $this->requerente->find($id);
         
         $title = "Editar requerente: {$requerente->nome}";
-        return view('painel.requerentes.create-edit',compact('title','requerente'));
+        $estado_civis =['Solteiro','Casado','Separado','Divorciado','Viúvo'];
+        $sexos =['Masculino','Feminino'];
+        $nacionalidades =['Brasileira','Estrangeira'];
+        return view('painel.requerentes.create-edit',compact('title','requerente','sexos','estado_civis','nacionalidades'));
     }
 
     /**

@@ -3,8 +3,8 @@
 @section('Content')
 
 <h1 class="title-pg">
-    <a href="{{route('dadoscorporais.index')}}"> <span class='glyphicon glyphicon-fast-backward'> </span> </a>
-    Gestão Dados corporal: <b> {{$dadoscorporai->id or 'Novo'}}</b>
+    <a href="{{route('lesoes.index')}}"> <span class='glyphicon glyphicon-fast-backward'> </span> </a>
+    Gestão Lesões: <b> {{$lesoe->id or 'Novo'}}</b>
 </h1>
 
 @if( isset($errors) && count($errors) > 0  )
@@ -14,10 +14,10 @@
     @endforeach
 @endif
 
-@if( isset($dadoscorporai) ) 
-    {!!Form::model($dadoscorporai,['route' => ['dadoscorporais.update',$dadoscorporai->id],'class' => 'form','method' => 'put' ])!!}
+@if( isset($lesoe) ) 
+    {!!Form::model($lesoe,['route' => ['lesoes.update',$lesoe->id],'class' => 'form','method' => 'put' ])!!}
 @else
-    {!!Form::open(['route' => 'dadoscorporais.store','class' => 'form'])!!} 
+    {!!Form::open(['route' => 'lesoes.store','class' => 'form'])!!} 
 @endif
 
     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -27,15 +27,14 @@
     <div class="row">
         <div class="col-md-9 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dado corporal</div>
+                <div class="panel-heading">Lesão</div>
 
                 <div class="panel-body">
-
                         <div class="form-group">
                             <label for="descricao" class="col-md-4 control-label">Descrição</label>
-
                             <div class="col-md-8">
-                                {{ Form::textarea('descricao'),['class'=>'form-control','required' =>'required'] }}
+                                <textarea class="field" id="descricao" name="descricao" cols="55" rows="10" >{{$lesoe->descricao or old('descricao')}}</textarea>
+                           <!--     {{ Form::textarea('descricao'),['cols'=>'80','class'=>'form-control','required' =>'required'] }}-->
                             </div>
                         </div>
  
@@ -44,13 +43,12 @@
 
                             <div class="col-md-6">
                             <select name='grupo_id' class='form-control'>
-                                  <option>Escolha o grupo </option>
                                   @foreach($grupovalores as $grupovalore)
                                     <option value='{{$grupovalore->id}}' 
-                                            @if(isset($dadoscorporai) && $dadoscorporai->grupo_id == $grupovalore->id)
+                                            @if(isset($lesoe) && $lesoe->grupo_id == $grupovalore->id)
                                                 selected
                                             @endif
-                                            >{{$grupovalore->valor}}</option>
+                                            >{{$grupovalore->id}}</option>
      
                                   @endforeach
                             </select> 
@@ -72,6 +70,6 @@
 </div>
  <!--  {!!Form::submit('Enviar',['class' => 'btn btn-primary'])!!} -->
 
-  {!!Form::close(['route' => 'dadoscorporais.store','class' => 'form'])!!} 
+  {!!Form::close(['route' => 'lesoes.store','class' => 'form'])!!} 
 
 @endsection

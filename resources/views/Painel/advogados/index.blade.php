@@ -20,7 +20,7 @@
   
     <a href="{{route('advogados.create')}}" class="btn btn-primary btn-add "><span class="glyphicon glyphicon-plus"> </span>Cadastrar </a>  
   
-    <table class="table table-striped">
+    <table class="table table-hover table-striped table-condensed"> 
         <tr>
           <th>Nome</th>
           <th>OAB</th>

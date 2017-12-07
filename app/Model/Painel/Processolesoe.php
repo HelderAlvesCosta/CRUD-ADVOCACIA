@@ -8,7 +8,7 @@ class Processolesoe extends Model
 {
     protected $fillable =[
                   'processo_id',
-                  'corporai_id'
+                  'lesoe_id'
         
          ];
 }

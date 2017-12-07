@@ -15,8 +15,8 @@ class CreateProcessolesoesTable extends Migration
     {
          Schema::create('processolesoes', function (Blueprint $table) {
             $table->integer('processo_id');
-            $table->integer('corporai_id');
-            $table->primary(array('processo_id', 'corporai_id'));
+            $table->integer('lesoe_id');
+            $table->primary(array('processo_id', 'lesoe_id'));
             $table->timestamps();
          });
     }

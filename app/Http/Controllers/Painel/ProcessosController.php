@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Painel\Processo;
 use App\Model\Painel\Requerente;
 use App\Model\Painel\Advogado;
-use App\Model\Painel\Corporai;
+use App\Model\Painel\Lesoe;
 use App\Model\Painel\Processolesoe;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
@@ -22,17 +22,17 @@ class ProcessosController extends Controller
     private $requerente;  
     private $advogado;
     private $processolesoe;
-    private $corporai;
+    private $lesoe;
   
     private $totalPag = 11;
     
-    public function __construct(Processo $processo,Requerente $requerente,Advogado $advogado,Processolesoe $processolesoe,Corporai $corporai){
+    public function __construct(Processo $processo,Requerente $requerente,Advogado $advogado,Processolesoe $processolesoe,Lesoe $lesoe){
         
         $this->processo = $processo;
         $this->requerente = $requerente;
         $this->advogado = $advogado;
         $this->processolesoe = $processolesoe;
-        $this->corporai = $corporai;
+        $this->lesoe = $lesoe;
 
     }
 
@@ -60,9 +60,9 @@ class ProcessosController extends Controller
         $title ='Cadastrar novo processo';
         $requerentes = $this->requerente->all();
         $advogados = $this->advogado->all();
-        $corporais = $this->corporai->all();
+        $lesoes = $this->lesoe->all();
       
-        return view('painel.processos.create-edit',compact('title','requerentes','advogados','corporais'));
+        return view('painel.processos.create-edit',compact('title','requerentes','advogados','lesoes'));
     }
 
     /**
@@ -111,10 +111,10 @@ class ProcessosController extends Controller
         $title = "Editar processo: {$processo->nome}";
         $requerentes = $this->requerente->all();
         $advogados = $this->advogado->all();
-        $corporais = $this->corporai->all();
+        $lesoes = $this->lesoe->all();
         $processolesoes = $this->processolesoe->where('processo_id',$id)->get();
              
-        return view('painel.processos.create-edit',compact('title','processo','requerentes','advogados','processolesoes','corporais'));
+        return view('painel.processos.create-edit',compact('title','processo','requerentes','advogados','processolesoes','lesoes'));
     }
 
     /**
@@ -132,7 +132,7 @@ class ProcessosController extends Controller
        $delete = $this->processolesoe->where('processo_id',$id)->delete();
      //  return $dataForm['valor_condenação_aud'];
        foreach($dataForm['opcoes'] as $item){
-          $this->processolesoe->insert(['processo_id' => $id,'corporai_id' => $item]);
+          $this->processolesoe->insert(['processo_id' => $id,'lesoe_id' => $item]);
        }    
        $processo = $this->processo->find($id);
        $update = $processo->update($dataForm);

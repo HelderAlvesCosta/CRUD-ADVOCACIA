@@ -5,7 +5,7 @@
        <title>{{$title or 'Painel Curso'}} </title> 
        
        <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-       <link rel="stylesheet"  href="{{url('assets/painel/bootstrap-3.3.7-dist/css/bootstrap.min.css')}}"> 
+       <link rel="stylesheet"  href="{{url('assets/painel/bootstrap-3.3.7-dist/css/bootstrap.css')}}"> 
        <link rel="stylesheet"  href="{{url('assets/painel/bootstrap-3.3.7-dist/css/multi-select.css')}}"> 
        <link rel="stylesheet"  href="{{url('assets/painel/bootstrap-3.3.7-dist/css/prism.css')}}"> 
        <link rel="stylesheet"  href="{{url('assets/painel/bootstrap-3.3.7-dist/css/chosen.css')}}"> 
@@ -32,26 +32,42 @@
        <script type="text/javascript" src="{{ asset('js/prism.js') }}"></script>
        <script type="text/javascript" src="{{ asset('js/init.js') }}"></script>
        
-       <script>
+     <script>
         $( document ).ready( function(){
 		// Aqui fazemos uso do plugin MASKED INPUT
 		$("#data").mask("99/99/9999");
 		$("#cpf").mask("999.999.999-99");
+		$("#cep").mask("99999-999");
 		$("#telefone").mask("(99) 9999-9999");
 		$("#celular").mask("(99)99999-9999");
-		// Aqui fazemos uso do plugin MASK MONEY
-		$("#valor_condenação_aud").maskMoney({prefix:'R$ ', thousands:'.',decimal:','});
+               // Aqui fazemos uso do plugin MASK MONEY
+                $("#valor_condenação_aud").maskMoney({prefix:'R$ ', thousands:',',decimal:'.'});
+                $("#valor").maskMoney({prefix:'R$ ', thousands:',',decimal:'.'});
                 $("#myform").submit(function () {
-                      var cpfValue = $("#valor_condenação_aud").val();
-
+                      var Value_cond = $("#valor_condenação_aud").val();
+                  
                      // Remove os caracteres que não são dígitos:
-                    cpfValue = cpfValue.replace(/\D/g, '');
-
-       // Atualiza o valor no campo do formulário:
-                      $("#valor_condenação_aud").val( cpfValue );
-                     });
+                    Value_cond = Value_cond.replace(/\D/g, '');
+                  
+        // Atualiza o valor no campo do formulário:
+                    $("#valor_condenação_aud").val( Value_cond/100 );
+                  
+                    });
+           
+                $("#myformgrupo").submit(function () {
+                      var Value = $("#valor").val();
+                  
+                     // Remove os caracteres que não são dígitos:
+                    Value = Value.replace(/\D/g, '');
+                  
+        // Atualiza o valor no campo do formulário:
+                    $("#valor").val( Value/100 );
+                  
+                    });
+                     
               }); 
        </script>
+
       
  
        <!-- Script FIM -->

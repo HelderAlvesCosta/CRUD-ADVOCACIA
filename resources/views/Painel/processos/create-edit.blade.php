@@ -4,7 +4,7 @@
 
 <h1 class="title-pg">
     <a href="{{route('processos.index')}}"> <span class='glyphicon glyphicon-fast-backward'> </span> </a>
-    Gestão Processo: <b> {{$processo->numero or 'Novo'}}</b>
+    Gestão Processo: <b>  {{$processo->numero or 'Novo'}}</b>
 </h1>
 
 @if( isset($errors) && count($errors) > 0  )
@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-md-9 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading" style="color:red" >Processo</div>
+                <div class="panel-heading" style="color:red; font-weight:bold; font-size:150%" >Processo</div>
 <div class="panel-body">
 
                         <div class="form-group">
@@ -111,7 +111,7 @@
                             <div class="row" >
                                 <div class="col-md-8 col-md-offset-0">
                                      <div class="panel panel-default">
-                                        <div class="panel-heading">Acidente</div>
+                                        <div class="panel-heading" style="color:red; font-weight:bold;; font-size:150%">Acidente</div>
 
                                             <div class="panel-body">
                                                 <div class="form-group">
@@ -183,7 +183,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-0">
             <div class="panel panel-default">
-                <div class="panel-heading">Dados hospitalar</div>
+                <div class="panel-heading" style="color:red; font-weight:bold;; font-size:150%">Dados hospitalar</div>
 
                 <div class="panel-body">
 
@@ -196,18 +196,18 @@
                               </div>
      <select id="opcao" name="opcoes[]" class="chosen-select-width" multiple > 
     
-        @foreach($corporais as $corporai)
-            <option value='{{$corporai->id}}'
+        @foreach($lesoes as $lesoe)
+            <option value='{{$lesoe->id}}'
              @if(isset($processolesoes))
                 
                 @foreach($processolesoes as $processolesoe)
-                   @if( $corporai->id == $processolesoe->corporai_id)
+                   @if( $lesoe->id == $processolesoe->lesoe_id)
                       selected
                    @endif
                 @endforeach
  
             @endif
-            >{{$corporai->descricao}}</option>
+            >{{$lesoe->descricao}}</option>
      
         @endforeach
  
@@ -270,7 +270,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-0">
             <div class="panel panel-default">
-                <div class="panel-heading">Audiência</div>
+                <div class="panel-heading " style="color:red; font-weight:bold; font-size:150%">Audiência</div>
 
                 <div class="panel-body">
 
@@ -360,8 +360,8 @@
     </div>
 </div>
                     
-
-      
+       
   {!!Form::close(['route' => 'processos.store','class' => 'form'])!!} 
 
 @endsection
+ 

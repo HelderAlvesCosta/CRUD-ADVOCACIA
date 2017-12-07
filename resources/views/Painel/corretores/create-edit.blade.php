@@ -120,7 +120,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" value="{{$corretore->email or old('email')}}">
+                                <input type="email"  class="form-control" value="default@example.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
                             </div>
                         </div>
@@ -129,8 +129,8 @@
                             <label for="comissao" class="col-md-4 control-label">Comissão</label>
 
                             <div class="col-md-6">
-                                <input id="comissao" type="text" class="form-control " name="comissao" value="{{$corretore->comissao or old('comissao')}}" >
-
+                                <input id="comissao" type="text" class="form-control" name="comissao" value="{{$corretore->comissao or old('comissao')}}" required> 
+                          
                             </div>
                         </div>
                         <div class="form-group">

@@ -20,7 +20,6 @@
     <table class="table table-striped">
         <tr>
           <th>Nome</th>
-          <th>Profissão</th>
           <th>RG</th>
           <th>CPF</th>
           <th>Endereço</th>
@@ -35,7 +34,6 @@
         @foreach($requerentes as $requerente)
        <tr>
             <td>{{$requerente->nome}}</td>
-            <td>{{$requerente->profissao}}</td>
             <td>{{$requerente->rg}}</td>
             <td>{{$requerente->cpf}}</td>
             <td>{{$requerente->endereco}}</td>

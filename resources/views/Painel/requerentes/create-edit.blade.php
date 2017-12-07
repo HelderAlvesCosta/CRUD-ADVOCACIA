@@ -42,24 +42,47 @@
                             <label for="sexo" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Sexo</label>
 
                             <div class="col-md-6">
-                               {!!Form::select('sexo',$sexo,null,['class' => 'form-control',])!!}
-
+                            <select data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                @foreach($sexos as $sexo)
+                                    <option value='{{$sexo}}' 
+                                            @if(isset($requerente) && $requerente->sexo == $sexo)
+                                                selected
+                                            @endif
+                                            >{{$sexo}}</option>
+                            @endforeach
+                            </select> 
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="nacionalidade" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Nacionalidade</label>
 
                             <div class="col-md-6">
-                               {!!Form::select('nacionalidade',$nacionalidade,null,['class' => 'form-control',])!!}
-
+                            <select data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                @foreach($nacionalidades as $nacionalidade)
+                                    <option value='{{$nacionalidade}}' 
+                                            @if(isset($requerente) && $requerente->nacionalidade == $nacionalidade)
+                                                selected
+                                            @endif
+                                            >{{$nacionalidade}}</option>
+                            @endforeach
+                            </select> 
+                        
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="estado_civil" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Estado civil</label>
 
                             <div class="col-md-6">
-                                 {!!Form::select('estado_civil',$estado_civil,null,['class' => 'form-control',])!!}
-
+                            <select data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                @foreach($estado_civis as $estado_civil)
+                                    <option value='{{$estado_civil}}' 
+                                            @if(isset($requerente) && $requerente->estado_civil == $estado_civil)
+                                                selected
+                                            @endif
+                                            >{{$estado_civil}}</option>
+                            @endforeach
+                            </select> 
+                        
                             </div>
                         </div>
 
@@ -153,7 +176,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" value="{{$requerente->email or old('email')}}">
+                                 <input type="email"  class="form-control" value="default@example.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
                             </div>
                         </div>

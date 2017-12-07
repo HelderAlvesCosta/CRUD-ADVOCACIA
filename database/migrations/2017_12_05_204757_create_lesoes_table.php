@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCorporaisTable extends Migration
+class CreateLesoesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateCorporaisTable extends Migration
      */
     public function up()
     {
-          Schema::create('corporais', function (Blueprint $table) {
+        Schema::create('lesoes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('grupo_id');
             $table->longText('descricao');
             $table->timestamps();
         }); 
-
     }
 
     /**
@@ -29,6 +28,6 @@ class CreateCorporaisTable extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('corporais');
+        Schema::dropIfExists('lesoes');
     }
 }

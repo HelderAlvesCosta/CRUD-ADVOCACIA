@@ -85,8 +85,8 @@
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" value="{{$advogado->email or old('email')}}">
-
+                         <!--       <input id="email" type="email" class="form-control" name="email" value="{{$advogado->email or old('email')}}">-->
+<input type="email"  class="form-control" value="default@example.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                             </div>
                         </div>
                 </div>

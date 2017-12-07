@@ -4,7 +4,7 @@ namespace App\Http\Requests\Painel;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CorporaiFormRequest extends FormRequest
+class LesoeFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,13 +21,12 @@ class CorporaiFormRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(){
-       
+    public function rules()
+    {
         return [
            'descricao'       => 'required|min:40|max:400',
            'grupo_id'        => 'required'
         ];
- 
     }
     
      public function messages(){
@@ -39,6 +38,4 @@ class CorporaiFormRequest extends FormRequest
             'descricao.max'           => 'O campo Descrição tem no máximp 400 caracteres'
         ];
     }
-
-    
 }
