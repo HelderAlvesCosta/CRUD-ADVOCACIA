@@ -21,7 +21,7 @@ class CreateEscritoriosTable extends Migration
             $table->string('bairro',40);
             $table->string('cidade',40);
             $table->string('uf',2);
-            $table->string('cep',8);
+            $table->string('cep',10);
 
             $table->string('telefone',15);
             $table->string('email',100);

@@ -9,6 +9,7 @@
     
 <p> <b>OAB:</b> {{$advogado->oab}} </p> 
 <p> <b>UF:</b> {{$advogado->uf}} </p> 
+<p> <b>Cidade:</b> {{$advogado->cidade}} </p> 
 <p> <b>Telefone:</b> {{$advogado->telefone}} </p> 
 <p> <b>E-Mail:</b> {{$advogado->email}} </p> 
 

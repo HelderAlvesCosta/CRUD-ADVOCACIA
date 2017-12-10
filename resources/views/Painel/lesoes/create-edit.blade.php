@@ -15,9 +15,9 @@
 @endif
 
 @if( isset($lesoe) ) 
-    {!!Form::model($lesoe,['route' => ['lesoes.update',$lesoe->id],'class' => 'form','method' => 'put' ])!!}
+    {!!Form::model($lesoe,['route' => ['lesoes.update',$lesoe->id],'class' => 'form-horizontal','method' => 'put' ])!!}
 @else
-    {!!Form::open(['route' => 'lesoes.store','class' => 'form'])!!} 
+    {!!Form::open(['route' => 'lesoes.store','class' => 'form-horizontal'])!!} 
 @endif
 
     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -31,9 +31,9 @@
 
                 <div class="panel-body">
                         <div class="form-group">
-                            <label for="descricao" class="col-md-4 control-label">Descrição</label>
+                            <label for="descricao" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Descrição</label>
                             <div class="col-md-8">
-                                <textarea class="field" id="descricao" name="descricao" cols="55" rows="10" >{{$lesoe->descricao or old('descricao')}}</textarea>
+                                <textarea class="field" id="descricao" name="descricao" cols="57" rows="10" >{{$lesoe->descricao or old('descricao')}}</textarea>
                            <!--     {{ Form::textarea('descricao'),['cols'=>'80','class'=>'form-control','required' =>'required'] }}-->
                             </div>
                         </div>
@@ -58,18 +58,18 @@
 
  
               <div class="form-group">
-                            <div class="col-md-8 col-md-offset-0">
+                            <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Enviar
                                 </button>
                             </div>
                         </div>
-            
+  {!!Form::close(['route' => 'lesoes.store','class' => 'form'])!!} 
+          
         </div>
     </div>
 </div>
  <!--  {!!Form::submit('Enviar',['class' => 'btn btn-primary'])!!} -->
 
-  {!!Form::close(['route' => 'lesoes.store','class' => 'form'])!!} 
-
+  
 @endsection

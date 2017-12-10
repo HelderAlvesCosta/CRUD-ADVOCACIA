@@ -15,9 +15,9 @@
 @endif
 
 @if( isset($requerente) ) 
-    {!!Form::model($requerente,['route' => ['requerentes.update',$requerente->id],'class' => 'form','method' => 'put' ])!!}
+    {!!Form::model($requerente,['route' => ['requerentes.update',$requerente->id],'class' => 'form-horizontal','method' => 'put' ])!!}
 @else
-    {!!Form::open(['route' => 'requerentes.store','class' => 'form'])!!} 
+    {!!Form::open(['route' => 'requerentes.store','class' => 'form-horizontal'])!!} 
 @endif
 
  <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -136,7 +136,7 @@
                             <label for="uf" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>UF</label>
 
                             <div class="col-md-6">
-                                <select id="uf" type="text" class="form-control" name="uf" value="{{$advogado->uf or old('uf')}}"></select>
+                                <select id="uf" type="text" class="chosen-select-width" name="uf" value="{{$advogado->uf or old('uf')}}"></select>
                             </div>
                         </div>
                      <div class="form-group">
@@ -176,8 +176,12 @@
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                 <input type="email"  class="form-control" value="default@example.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-
+                            @if( isset($requerente) ) 
+                                <input type="email"  class="form-control" value="{{$requerente->email or old('email')}}" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                            @else
+                                <input type="email"  class="form-control" value="default@example.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                            @endif
+                           
                             </div>
                         </div>
                         <div class="form-group">
@@ -215,23 +219,23 @@
 
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                      Enviar
+                                </button>
+                            </div>
+                        </div>
+                        {!!Form::close(['route' => 'requerentes.store','class' => 'form'])!!} 
                        
                        
                 </div>
             </div>
             
-            <div class="form-group">
-                <div class="col-md-8 col-md-offset-0">
-                     <button type="submit" class="btn btn-primary">
-                                Enviar
-                     </button>
-                </div>
-            </div>
             
         </div>
     </div>
 </div>
 
-{!!Form::close(['route' => 'requerentes.store','class' => 'form'])!!} 
 
 @endsection

@@ -11,7 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+       
 </head>
 <body>
     <div id="app">
@@ -45,12 +46,12 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                      <!--      <li><a href="{{ route('register')}}">Register</a></li>  -->
                         @else
-                            <a class="navbar-brand" href="{{ url('/') }}">
+                           <a class="navbar-brand" href="{{route('register')}}">
                                 Usuários
                             </a> 
-                            <a class="navbar-brand" href="{{ url('/painel/escritorios') }}">
+                            <a class="navbar-brand" href="{{route('escritorios.edit',1)}}">
                                 Escritório
                             </a> 
                             <a class="navbar-brand" href="{{ url('/painel/advogados') }}">

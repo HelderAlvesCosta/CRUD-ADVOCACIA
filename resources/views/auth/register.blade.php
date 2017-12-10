@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -8,7 +9,8 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                  <!--  <form class="form-horizontal" method="POST" action="{{ route('register') }}">-->
+                    {!!Form::model(null,['route' => 'register','class' => 'form-horizontal','method' => 'post' ])!!}
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -62,13 +64,16 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
+                           
+                                <a class="btn btn-primary" style="width:85px; background-color:#C00 " href="{{ route('home') }}">Cancel</a>
                             </div>
                         </div>
-                    </form>
+                    <!-- </form> -->
+                   {!!Form::close(['route' => 'home','class' => 'form'])!!} 
                 </div>
             </div>
         </div>

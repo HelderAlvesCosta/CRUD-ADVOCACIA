@@ -108,10 +108,10 @@ class EscritoriosController extends Controller
        $escritorio = $this->escritorio->find($id);
        $update = $escritorio->update($dataForm);
         if ( $update )
-            return redirect()->route('escritorios.index');
+            return redirect()->route('home');
         else
            //- return redirect()->back(); 
-            return redirect()->route('escritorios.edit',$id)->with(['errors' => 'Falha ao editar']);
+            return redirect()->route('home',$id)->with(['errors' => 'Falha ao editar']);
     }
 
     /**

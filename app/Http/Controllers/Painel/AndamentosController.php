@@ -30,25 +30,25 @@ class AndamentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($processo_id)
     {
 
       // $processo = $andamento->processo ;
        // $country = Country::where('name','frança')->get()->first();
        // echo $processo->id;   
-        $this->id =$id;
-        $processos = $this->processo->find($id);
+        $this->id =$processo_id;
+        $processos = $this->processo->find($processo_id);
         $numero_processo = $processos->numero;
        
         $title = "Andamento do Processo: {$numero_processo}";
         
         //  $andamentos = $this->andamento->paginate($this->totalPag);
         //$count = $andamentos = $this->andamento->where('processo_id',$id)->count();
-        $andamentos = $this->andamento->where('processo_id',$id)->get();
-      
+        $andamentos = $this->andamento->where('processo_id',$processo_id)->get();
+       
         //  return $count;
         $status = $this->statu->all();
-        return view('painel.andamentos.index',compact('andamentos','status','title','id'));
+        return view('painel.andamentos.index',compact('andamentos','status','title','processo_id'));
 
     }
 
@@ -57,13 +57,13 @@ class AndamentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($process_id)
     {
       //  return 'oiiiiiiiiiii';
-        $title = "Cadastrar novo andamento do Processo: {$id}";
+        $title = "Cadastrar novo andamento do Processo: {$process_id}";
         
         $status = $this->statu->all();
-        return view('painel.andamentos.create-edit',compact('title','status','id'));
+        return view('painel.andamentos.create-edit',compact('title','status','process_id'));
         
     }
 
@@ -106,12 +106,16 @@ class AndamentosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($process_id, $data)
     {
-        $andamentoo = $this->processo->find($id);
-        
-        $title = "Editar andamento: {$andamento->cod_processo}";
-        return view('painel.andamentos.create-edit',compact('title','andamento'));
+        $andamento = $this->andamento->where('processo_id',$process_id)
+                                     ->where('data',$data)
+                                     ->first();
+        $status = $this->statu->all();
+        $processos = $this->processo->find($process_id);
+             
+        $title = "Editar andamento: {$process_id} {$data}";
+        return view('painel.andamentos.create-edit',compact('title','andamento','process_id','status','processos'));
 
     }
 
@@ -122,10 +126,13 @@ class AndamentosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $processo_id, $data)
     {
        $dataForm = $request->all();
-       $andamento = $this->andamento->find($id);
+       $andamento = $this->andamento->where('processo_id',$process_id)
+                                     ->where('data',$data)
+                                     ->first();
+       
        $update = $andamento->update($dataForm);
         if ( $update )
             return redirect()->route('andamentos.index');

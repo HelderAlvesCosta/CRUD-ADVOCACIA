@@ -15,9 +15,9 @@
 @endif
 
 @if( isset($grupovalore) ) 
-    {!!Form::model($grupovalore,['route' => ['grupovalores.update',$grupovalore->id],'id' => 'myformgrupo','name' => 'myformgrupo','class' => 'form','method' => 'put' ])!!}
+    {!!Form::model($grupovalore,['route' => ['grupovalores.update',$grupovalore->id],'id' => 'myformgrupo','name' => 'myformgrupo','class' => 'form-horizontal','method' => 'put' ])!!}
 @else
-    {!!Form::open(['route' => 'grupovalores.store','id' => 'myformgrupo','name' => 'myformgrupo','class' => 'form'])!!} 
+    {!!Form::open(['route' => 'grupovalores.store','id' => 'myformgrupo','name' => 'myformgrupo','class' => 'form-horizontal'])!!} 
 @endif
 
 <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -30,6 +30,18 @@
 
                 <div class="panel-body">
 
+                      <div class="form-group">
+                            <label for="id" class="col-md-4 control-label">Grupo</label>
+
+                            <div class="col-md-6">
+                                 @if( ! isset($grupovalore) )
+                                     <input id="id" type="text" class="form-control" name="id" value="{{$ultimo}}" disabled value="{{$grupovalore->id or old('id')}}" required>
+                                 @else
+                                     <input id="id" type="text" class="form-control" name="id" value="{{$grupovalore->id}}" disabled value="{{$grupovalore->id or old('id')}}" required>
+                                 @endif
+                            </div>
+                        </div>
+        
                        <div class="form-group">
                             <label for="valor" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Valor</label>
 
@@ -37,23 +49,23 @@
                                 <input id="valor" type="text" class="form-control" name="valor" value="{{$grupovalore->valor or old('valor')}}" required>
                             </div>
                         </div>
-                       
-                       
-                </div>
-            </div>
-            
             <div class="form-group">
-                <div class="col-md-8 col-md-offset-0">
+                <div class="col-md-8 col-md-offset-4">
                      <button type="submit" class="btn btn-primary">
                                 Enviar
                      </button>
                 </div>
             </div>
+           {!!Form::close(['route' => 'grupovalores.store','class' => 'form'])!!} 
+                       
+                       
+                </div>
+            </div>
+            
             
         </div>
     </div>
 </div>
 
-{!!Form::close(['route' => 'grupovalores.store','class' => 'form'])!!} 
 
 @endsection

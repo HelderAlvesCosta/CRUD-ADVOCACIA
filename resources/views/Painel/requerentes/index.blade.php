@@ -2,22 +2,20 @@
 
 @section('Content')
     <h1 class="title-pg">Listagem dos Requerentes</h1>
-        <!-- INICIO   -->  
-  <form action="/crud_advocacia/public/searchRequerente" method="POST" role="search">
-    {{ csrf_field() }}
-    <div class="input-group  col-xs-4 pull-right">
-        <input type="text" class="form-control" name="q"
-            placeholder="Pesquisa requerentes" > <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </span>
-    </div>
-  </form>
-
-    <a href="{{route('requerentes.create')}}" class="btn btn-primary btn-add"><span class="glyphicon glyphicon-plus"> </span>Cadastrar </a>  
+   <!-- INICIO   -->  
+  <div class="form-group input-group">
+   
+     <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+     <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
+ 
+  </div>
+  <!-- FIM   -->  
   
-    <table class="table table-striped">
+    <a href="{{route('requerentes.create')}}"  class="btn btn-primary btn-add"><span class="glyphicon glyphicon-plus"> </span>Cadastrar </a>  
+  
+    <table id="tabela" class="table table-hover table-striped table-condensed">     
+        
+        <thead>
         <tr>
           <th>Nome</th>
           <th>RG</th>
@@ -27,9 +25,10 @@
           <th>Cidade</th>
         
       
-          <th width="100px">Ações</th>
+          <th width="72px">Ações</th>
         </tr>
-     
+        </thead>
+        <tbody>
         @if(isset($requerentes))
         @foreach($requerentes as $requerente)
        <tr>
@@ -41,10 +40,10 @@
             <td>{{$requerente->cidade}}</td>
         
             <td>
-                 <a href="{{route('requerentes.edit',$requerente->id)}}" class="actions edit">
+                 <a href="{{route('requerentes.edit',$requerente->id)}}" title="Editar requerente" class="actions edit">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
-                <a href="{{route('requerentes.show',$requerente->id)}}" class="actions delete">
+                <a href="{{route('requerentes.show',$requerente->id)}}" title="Visualisar requerente"  class="actions delete">
                     <span class=" glyphicon glyphicon-eye-open"></span>
                 </a> 
             </td>     
@@ -54,8 +53,13 @@
        @elseif(isset($message))
 	  <p style="color:red;font-size:160%;">{{ $message }}</p>
        @endif
-    
+    </tbody>
     </table>
+    
+    <script>
+            $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+    </script>
+ 
     
  @if(isset($requerentes))
    {!! $requerentes->links()!!}

@@ -94,8 +94,13 @@ Route::get('/', 'SiteController@index');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
+
+/////////////////////
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+////////////////////
 
 Route::resource('/painel/advogados', 'Painel\AdvogadosController');
 Route::resource('/painel/escritorios', 'Painel\EscritoriosController');
@@ -107,14 +112,14 @@ Route::resource('/painel/grupovalores', 'Painel\GrupoValoresController');
 Route::resource('/painel/lesoes', 'Painel\LesoesController');
 
 
-Route::get('/painel/Andamentos/index/{id}',['as'=>'andamentos.index','uses'=>'Painel\AndamentosController@index']);
-Route::get('/painel/Andamentos/create/{id}',['as'=>'andamentos.create','uses'=>'Painel\AndamentosController@create']);
+Route::get('/painel/Andamentos/index/{processo_id}',['as'=>'andamentos.index','uses'=>'Painel\AndamentosController@index']);
+Route::get('/painel/Andamentos/create/{processo_id}',['as'=>'andamentos.create','uses'=>'Painel\AndamentosController@create']);
 Route::post('/painel/Andamentos/store',['as'=>'andamentos.store','uses'=>'Painel\AndamentosController@store']);
-Route::get('/painel/Andamentos/edit/{id}',['as'=>'andamentos.edit','uses'=>'Painel\AndamentosController@edit']);
-Route::patch('/painel/Andamentos/{id}',['as'=>'andamentos.update','uses'=>'Painel\AndamentosController@update']);
-Route::delete('/painel/Andamentos/{id}',['as'=>'andamentos.destroy','uses'=>'Painel\AndamentosController@destroy']);
-Route::get('/painel/Andamentos/{id}',['as'=>'andamentos.view','uses'=>'Painel\AndamentosController@view']);
-Route::get('/painel/Andamentos/show/{id}',['as'=>'andamentos.show','uses'=>'Painel\AndamentosController@show']);
+Route::get('/painel/Andamentos/{processo_id}/{data}/edit',['as'=>'andamentos.edit','uses'=>'Painel\AndamentosController@edit']);
+Route::patch('/painel/Andamentos/{processo_id}/{data}',['as'=>'andamentos.update','uses'=>'Painel\AndamentosController@update']);
+Route::delete('/painel/Andamentos/{processo_id}/{data}',['as'=>'andamentos.destroy','uses'=>'Painel\AndamentosController@destroy']);
+Route::get('/painel/Andamentos/{processo_id}',['as'=>'andamentos.view','uses'=>'Painel\AndamentosController@view']);
+Route::get('/painel/Andamentos/show/{processo_id}',['as'=>'andamentos.show','uses'=>'Painel\AndamentosController@show']);
 
 Route::post( '/searchAdvogado', function () {
 	$q = Input::get ( 'q' );
@@ -178,7 +183,7 @@ Route::post( '/searchProcesso', function () {
 
 Route::post( '/searchStatu', function () {
 	$q = Input::get ( 'q' );
-	$status = Statu::where ( 'nome', 'LIKE', '%' . $q . '%')->paginate(11);
+	$status = Statu::where ( 'descricao', 'LIKE', '%' . $q . '%')->paginate(11);
         $message = 'Nada encontrado. Tente pesquisar novamente !';
 	$title = 'Listagem dos Status';
                 

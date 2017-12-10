@@ -15,9 +15,9 @@
 @endif
 
 @if( isset($processo) ) 
-    {!!Form::model($processo,['route' => ['processos.update',$processo->id],'id' => 'myform','name' => 'myform', 'class' => 'form','method' => 'put' ])!!}
+    {!!Form::model($processo,['route' => ['processos.update',$processo->id],'id' => 'myform','name' => 'myform', 'class' => 'form-horizontal','method' => 'put' ])!!}
 @else
-    {!!Form::open(['route' => 'processos.store','id' => 'myform','name' => 'myform','class' => 'form'])!!} 
+    {!!Form::open(['route' => 'processos.store','id' => 'myform','name' => 'myform','class' => 'form-horizontal'])!!} 
 @endif
 
     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -340,15 +340,17 @@
                     </div>
             </div>
             
-              <div class="form-group">
-                            <div class="col-md-8 col-md-offset-0">
-                                <button type="submit" class="btn btn-primary">
-                                    Enviar
-                                </button>
-                            </div>
-                        </div>
-            
+            <div class="form-group">
+                <div class="col-md-8 col-md-offset-4">
+                    <button type="submit" class="btn btn-primary">
+                          Enviar
+                    </button>
+               </div>
+            </div>
+          {!!Form::close(['route' => 'processos.store','class' => 'form'])!!} 
+      
         </div>
+      
     </div>
  </div>
  </div>
@@ -361,7 +363,6 @@
 </div>
                     
        
-  {!!Form::close(['route' => 'processos.store','class' => 'form'])!!} 
 
 @endsection
  

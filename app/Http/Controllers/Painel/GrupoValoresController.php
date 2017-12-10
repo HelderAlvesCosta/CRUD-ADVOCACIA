@@ -40,7 +40,9 @@ class GrupoValoresController extends Controller
     public function create()
     {
         $title ='Cadastrar novo grupo de valor';
-        return view('painel.grupovalores.create-edit',compact('title'));
+        $ultimo_id = $this->grupovalore->latest('id')->first(); 
+        $ultimo = $ultimo_id->id + 1;
+        return view('painel.grupovalores.create-edit',compact('title','ultimo'));
 
     }
 
