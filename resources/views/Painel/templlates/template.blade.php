@@ -51,6 +51,13 @@
                // Aqui fazemos uso do plugin MASK MONEY
                 $("#valor_condenação_aud").maskMoney({prefix:'R$ ', thousands:',',decimal:'.'});
                 $("#valor").maskMoney({prefix:'R$ ', thousands:',',decimal:'.'});
+                $("#comissao").maskMoney({prefix:'R$ ', thousands:',',decimal:'.'});        
+                // Bancos
+                mascara();
+                $("#banco").change(function() {
+                 mascara()
+                });
+                $("#tipo").mask("9");
                 $("#myform").submit(function () {
                       var Value_cond = $("#valor_condenação_aud").val();
                   
@@ -72,12 +79,43 @@
                     $("#valor").val( Value/100 );
                   
                     });
-                     
+                $("#form_corretor").submit(function () {
+                      var Value = $("#comissao").val();
+                  
+                     // Remove os caracteres que não são dígitos:
+                    Value = Value.replace(/\D/g, '');
+                  
+        // Atualiza o valor no campo do formulário:
+                    $("#comissao").val( Value/100 );
+                  
+                    });
+
+
               }); 
+        function mascara() {
+           var banco = $("#banco").val();;
+           if(banco == 'Caixa Economica'){
+                 $('#agencia').mask('9999999');
+                 $('#conta').mask('99999999-9');
+              }else if(banco == 'Banco do Brasil'){
+                 $('#agencia').mask('999999');
+                 $('#conta').mask('9999999999999');
+              }else if(banco == 'Bradesco'){
+                 $('#agencia').mask('9999');
+                 $('#conta').mask('9999999-9');
+              }else if(banco == 'Itaú'){
+                 $('#agencia').mask('9999');
+                 $('#conta').mask('99999-9');
+              }else{
+                 $('#agencia').mask('9999999');
+                 $('#conta').mask('99999999999999');
+              }
+       
+        return ;              // The function returns the product of p1 and p2
+       
+        }
        </script>
 
-      
- 
        <!-- Script FIM -->
 <script type="text/javascript">
   // run pre selected options

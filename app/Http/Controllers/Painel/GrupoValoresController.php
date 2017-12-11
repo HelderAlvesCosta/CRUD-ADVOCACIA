@@ -13,7 +13,7 @@ use App\Http\Requests\Painel\GrupoValorFormRequest;
 class GrupoValoresController extends Controller
 {
     private $grupovalore;
-    private $totalPag = 11;
+    private $totalPag = 10;
     
     public function __construct(Grupovalore $grupovalore){
         

@@ -14,7 +14,7 @@ class CorretoresController extends Controller
 {
     
     private $corretore;
-    private $totalPag = 11;
+    private $totalPag = 10;
     
     public function __construct(Corretore $corretore){
         
@@ -43,7 +43,11 @@ class CorretoresController extends Controller
     public function create()
     {
         $title ='Cadastrar novo corretor';
-        return view('painel.corretores.create-edit',compact('title'));
+        $bancos =['Caixa Economica','Banco do Brasil','Bradesco','Itaú','Santander',
+            'HSBC','Banrisul','BNB','Banestes','CitiBank','Banco da Amazônia','BRB',
+            'Safra','BicBanco'];
+
+        return view('painel.corretores.create-edit',compact('title','bancos'));
     }
 
     /**
@@ -92,7 +96,11 @@ class CorretoresController extends Controller
         $corretore = $this->corretore->find($id);
         
         $title = "Editar corretor: {$corretore->nome}";
-        return view('painel.corretores.create-edit',compact('title','corretore'));
+        $bancos =['Caixa Economica','Banco do Brasil','Bradesco','Itaú','Santander',
+            'HSBC','Banrisul','BNB','Banestes','CitiBank','Banco da Amazônia','BRB',
+            'Safra','BicBanco'];
+
+        return view('painel.corretores.create-edit',compact('title','corretore','bancos'));
     }
 
     /**

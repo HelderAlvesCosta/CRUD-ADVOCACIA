@@ -14,7 +14,7 @@ class StatusController extends Controller
 {
     
     private $statu;
-    private $totalPag = 11;
+    private $totalPag = 10;
     
     public function __construct(Statu $statu){
         

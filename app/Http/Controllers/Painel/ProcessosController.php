@@ -24,7 +24,7 @@ class ProcessosController extends Controller
     private $processolesoe;
     private $lesoe;
   
-    private $totalPag = 11;
+    private $totalPag = 10;
     
     public function __construct(Processo $processo,Requerente $requerente,Advogado $advogado,Processolesoe $processolesoe,Lesoe $lesoe){
         

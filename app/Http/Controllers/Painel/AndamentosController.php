@@ -15,7 +15,7 @@ class AndamentosController extends Controller
     private $statu;
     private $id;
     private $numero_processo;
-    private $totalPag = 11;
+    private $totalPag = 10;
  
     public function __construct(Andamento $andamento,Processo $processo,Statu $statu){
        

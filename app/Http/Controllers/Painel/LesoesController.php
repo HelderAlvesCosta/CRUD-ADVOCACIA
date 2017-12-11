@@ -16,7 +16,7 @@ class LesoesController extends Controller
     
     private $lesoe;
     private $grupovalore;
-    private $totalPag = 11;
+    private $totalPag = 10;
     
     public function __construct(Lesoe $lesoe,Grupovalore $grupovalore){
         

@@ -30,9 +30,8 @@ class CorretoreFormRequest extends FormRequest
            'endereco'    => 'required|min:3|max:100',
            'bairro'      => 'required|min:3|max:40',
            'email'       => 'max:100',
-           'banco'       => 'min:3|max:15',
-           'conta'       => 'min:3|max:7',
-           'agencia'     => 'min:3|max:5',
+           'conta'       => 'min:3|max:14',
+           'agencia'     => 'min:3|max:7',
            'tipo'        => 'min:1|max:1'
         ];   
     }

@@ -1,4 +1,5 @@
 @extends('painel.templlates.template')
+@extends('layouts.app')
 
 @section('Content')
 

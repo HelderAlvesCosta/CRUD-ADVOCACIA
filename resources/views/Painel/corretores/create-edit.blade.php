@@ -1,4 +1,5 @@
 @extends('painel.templlates.template')
+@extends('layouts.app')
 
 @section('Content')
 
@@ -15,9 +16,9 @@
 @endif
 
 @if( isset($corretore) ) 
-    {!!Form::model($corretore,['route' => ['corretores.update',$corretore->id],'class' => 'form-horizontal','method' => 'put' ])!!}
+    {!!Form::model($corretore,['route' => ['corretores.update',$corretore->id],'id' => 'form_corretor','class' => 'form-horizontal','method' => 'put' ])!!}
 @else
-    {!!Form::open(['route' => 'corretores.store','class' => 'form-horizontal'])!!} 
+    {!!Form::open(['route' => 'corretores.store','id' => 'form_corretor','class' => 'form-horizontal'])!!} 
 @endif
 
 <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -141,8 +142,17 @@
                             <label for="banco" class="col-md-4 control-label">Banco</label>
 
                             <div class="col-md-6">
-                                <input id="banco" type="text" class="form-control" name="banco" value="{{$corretore->banco or old('banco')}}">
-
+                              <!--  <input id="banco" type="text" class="form-control" name="banco" value="{{$corretore->banco or old('banco')}}"> -->
+                                <select id="banco" name="banco" data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                @foreach($bancos as $banco)
+                                    <option value='{{$banco}}' 
+                                            @if(isset($corretore) && $corretore->banco == $banco)
+                                                selected
+                                            @endif
+                                            >{{$banco}}</option>
+                                @endforeach
+                                </select> 
+                         
                             </div>
                         </div>
                        
@@ -150,7 +160,7 @@
                             <label for="agencia" class="col-md-4 control-label">Agência</label>
 
                             <div class="col-md-6">
-                                <input id="agencia" type="text" class="form-control" name="agencia" value="{{$corretore->agencia or old('agencia')}}">
+                                <input id="agencia" name="agencia" type="text" class="form-control" name="agencia" value="{{$corretore->agencia or old('agencia')}}">
 
                             </div>
                         </div>
@@ -159,7 +169,7 @@
                             <label for="conta" class="col-md-4 control-label">Conta</label>
 
                             <div class="col-md-6">
-                                <input id="conta" type="text" class="form-control" name="conta" value="{{$corretore->conta or old('conta')}}">
+                                <input id="conta" name="conta"  type="text" class="form-control" name="conta" value="{{$corretore->conta or old('conta')}}">
 
                             </div>
                         </div>

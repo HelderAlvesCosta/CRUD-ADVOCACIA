@@ -17,7 +17,7 @@ class AdvogadosController extends Controller
      * @return \Illuminate\Http\Response
      */
     private $advogado;
-    private $totalPag = 11;
+    private $totalPag = 10;
     private $uf = ['Ceará','Paraíba'];
     
     public function __construct(Advogado $advogado){

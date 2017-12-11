@@ -3,15 +3,50 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/layouts/app.blade.php</file>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/AdvogadosController.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/lesoes/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/lesoes/create-edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/corretores/index.blade.php</file>
             <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/advogados/create-edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Model/Painel/Advogado.php</file>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Requests/Painel/AdvogadoFormRequest.php</file>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/advogados/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/corretores/show.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/andamentos/create-edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/database/migrations/2017_11_11_193843_create_requerentes_table.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/auth/register.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/StatusController.php</file>
             <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/grupovalores/index.blade.php</file>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/status/create-edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/grupovalores/create-edit.blade.php</file>
             <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/advogados/show.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/escritorios/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/status/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/CorretoresController.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/requerentes/show.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/processos/create-edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/GrupoValoresController.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/escritorios/show.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/status/show.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Requests/Painel/RequerenteFormRequest.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/advogados/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/corretores/create-edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Requests/Painel/CorretoreFormRequest.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/LesoesController.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/ProcessosController.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/database/migrations/2017_11_11_193754_create_corretores_table.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/andamentos/show.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/processos/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/templlates/template.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/processos/show.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/requerentes/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/EscritoriosController.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/RequerentesController.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/grupovalores/show.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/AdvogadosController.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/requerentes/create-edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/escritorios/create-edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/app/Http/Controllers/Painel/AndamentosController.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/andamentos/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/lesoes/show.blade.php</file>
         </group>
     </open-files>
 </project-private>

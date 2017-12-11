@@ -15,7 +15,7 @@ class EscritoriosController extends Controller
 {
     
     private $escritorio;
-    private $totalPag = 11;
+    private $totalPag = 10;
     
     public function __construct(Escritorio $escritorio){
         

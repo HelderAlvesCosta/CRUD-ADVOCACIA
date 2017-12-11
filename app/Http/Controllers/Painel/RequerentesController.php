@@ -15,7 +15,7 @@ class RequerentesController extends Controller
 {
     
     private $requerente;
-    private $totalPag = 11;
+    private $totalPag = 10;
     
     public function __construct(Requerente $requerente){
         
@@ -47,8 +47,11 @@ class RequerentesController extends Controller
         $estado_civis =['Solteiro','Casado','Separado','Divorciado','Viúvo'];
         $sexos =['Masculino','Feminino'];
         $nacionalidades =['Brasileira','Estrangeira'];
-       
-        return view('painel.requerentes.create-edit',compact('title','estado_civis','sexos','nacionalidades'));
+        $bancos =['Caixa Economica','Banco do Brasil','Bradesco','Itaú','Santander',
+            'HSBC','Banrisul','BNB','Banestes','CitiBank','Banco da Amazônia','BRB',
+            'Safra','BicBanco'];
+
+        return view('painel.requerentes.create-edit',compact('title','estado_civis','sexos','nacionalidades','bancos'));
     }
 
     /**
@@ -99,7 +102,11 @@ class RequerentesController extends Controller
         $estado_civis =['Solteiro','Casado','Separado','Divorciado','Viúvo'];
         $sexos =['Masculino','Feminino'];
         $nacionalidades =['Brasileira','Estrangeira'];
-        return view('painel.requerentes.create-edit',compact('title','requerente','sexos','estado_civis','nacionalidades'));
+        $bancos =['Caixa Economica','Banco do Brasil','Bradesco','Itaú','Santander',
+            'HSBC','Banrisul','BNB','Banestes','CitiBank','Banco da Amazônia','BRB',
+            'Safra','BicBanco'];
+
+        return view('painel.requerentes.create-edit',compact('title','requerente','sexos','estado_civis','nacionalidades','bancos'));
     }
 
     /**

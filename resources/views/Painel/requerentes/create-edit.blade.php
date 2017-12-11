@@ -1,4 +1,5 @@
 @extends('painel.templlates.template')
+@extends('layouts.app')
 
 @section('Content')
 
@@ -42,14 +43,14 @@
                             <label for="sexo" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Sexo</label>
 
                             <div class="col-md-6">
-                            <select data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                            <select id="sexo" name="sexo" data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
                                 @foreach($sexos as $sexo)
                                     <option value='{{$sexo}}' 
                                             @if(isset($requerente) && $requerente->sexo == $sexo)
                                                 selected
                                             @endif
                                             >{{$sexo}}</option>
-                            @endforeach
+                                @endforeach
                             </select> 
                             </div>
                         </div>
@@ -188,8 +189,16 @@
                             <label for="banco" class="col-md-4 control-label">Banco</label>
 
                             <div class="col-md-6">
-                                <input id="banco" type="text" class="form-control" name="banco" value="{{$requerente->banco or old('banco')}}">
-
+                                <select id="banco" name="banco" data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                @foreach($bancos as $banco)
+                                    <option value='{{$banco}}' 
+                                            @if(isset($corretore) && $corretore->banco == $banco)
+                                                selected
+                                            @endif
+                                            >{{$banco}}</option>
+                                @endforeach
+                                </select> 
+                         
                             </div>
                         </div>
                        
@@ -197,7 +206,7 @@
                             <label for="agencia" class="col-md-4 control-label">Agência</label>
 
                             <div class="col-md-6">
-                                <input id="agencia" type="text" class="form-control" name="agencia" value="{{$requerente->agencia or old('agencia')}}">
+                                <input id="agencia" name="agencia"  type="text" class="form-control" name="agencia" value="{{$requerente->agencia or old('agencia')}}">
 
                             </div>
                         </div>
@@ -206,7 +215,7 @@
                             <label for="conta" class="col-md-4 control-label">Conta</label>
 
                             <div class="col-md-6">
-                                <input id="conta" type="text" class="form-control" name="conta" value="{{$requerente->conta or old('conta')}}">
+                                <input id="conta"  name="conta"  type="text" class="form-control" name="conta" value="{{$requerente->conta or old('conta')}}">
 
                             </div>
                         </div>

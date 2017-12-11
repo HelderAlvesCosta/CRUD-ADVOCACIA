@@ -30,8 +30,8 @@ class CreateCorretoresTable extends Migration
             $table->decimal('comissao', 12, 2);
             
             $table->string('banco',15);
-            $table->string('agencia',5);
-            $table->string('conta',7);
+            $table->string('agencia',7);
+            $table->string('conta',14);
             $table->string('tipo',1);
             
           
