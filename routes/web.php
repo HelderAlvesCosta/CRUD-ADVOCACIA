@@ -4,6 +4,9 @@ use App\Model\Painel\Corretore;
 use App\Model\Painel\Requerente;
 use App\Model\Painel\Processo;
 use App\Model\Painel\Statu;
+use App\Model\Painel\User;
+use App\Model\Painel\Teste;
+
 use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +113,17 @@ Route::resource('/painel/status', 'Painel\StatusController');
 Route::resource('/painel/processos', 'Painel\ProcessosController');
 Route::resource('/painel/grupovalores', 'Painel\GrupoValoresController');
 Route::resource('/painel/lesoes', 'Painel\LesoesController');
+Route::resource('/painel/users', 'Painel\UsersController');
+Route::resource('/painel/testes', 'Painel\TestesController');
+
+//Route::get('/painel/testes/index',['as'=>'testes.index','uses'=>'Painel\TestesController@index']);
+//Route::get('/painel/testes/create',['as'=>'testes.create','uses'=>'Painel\TestesController@create']);
+//Route::post('/painel/testes/store',['as'=>'testes.store','uses'=>'Painel\TestesController@store']);
+//Route::get('/painel/testes/{id}/edit',['as'=>'testes.edit','uses'=>'Painel\TestesController@edit']);
+//Route::patch('/painel/testes/{id}',['as'=>'testes.update','uses'=>'Painel\TestesController@update']);
+//Route::delete('/painel/testes/{id}',['as'=>'testes.destroy','uses'=>'Painel\TestesController@destroy']);
+//Route::get('/painel/testes/{id}',['as'=>'testes.view','uses'=>'Painel\TestesController@view']);
+//Route::get('/painel/testes/show/{id}',['as'=>'testes.show','uses'=>'Painel\TestesController@show']);
 
 
 Route::get('/painel/Andamentos/index/{processo_id}',['as'=>'andamentos.index','uses'=>'Painel\AndamentosController@index']);
@@ -207,6 +221,36 @@ Route::post( '/searchLesoe', function () {
         }
         else{
             return view('painel.lesoes.index',compact('message','title'));
+        }
+                
+} );
+
+Route::post( '/searchUser', function () {
+	$q = Input::get ( 'q' );
+	$users = Statu::where ( 'name', 'LIKE', '%' . $q . '%')->paginate(11);
+        $message = 'Nada encontrado. Tente pesquisar novamente !';
+	$title = 'Listagem dos Usuários';
+                
+        if (count ( $status ) > 0){
+           return view('painel.users.index',compact('users','title'));
+        }
+        else{
+            return view('painel.users.index',compact('message','title'));
+        }
+                
+} );
+
+Route::post( '/searchTeste', function () {
+	$q = Input::get ( 'q' );
+	$testes = Statu::where ( 'nome', 'LIKE', '%' . $q . '%')->paginate(11);
+        $message = 'Nada encontrado. Tente pesquisar novamente !';
+	$title = 'Listagem dos Testes';
+                
+        if (count ( $status ) > 0){
+           return view('painel.testes.index',compact('testes','title'));
+        }
+        else{
+            return view('painel.testes.index',compact('message','title'));
         }
                 
 } );

@@ -59,13 +59,6 @@
                                 
                             </div>
                         </div>
-                     <div class="form-group">
-                            <label for="cidade" class="col-md-4 control-label"><span style="color:red" class="glyphicon glyphicon-star-empty"> </span>Cidade</label>
-
-                            <div class="col-md-6">
-                                <select id="cidade" type="text" class="form-control" name="cidade" value="{{$advogado->cidade or old('cidade')}}"></select>
-                            </div>
-                        </div>
                         
                             <script language="JavaScript" type="text/javascript" charset="utf-8">
                                 new dgCidadesEstados({
@@ -83,17 +76,66 @@
 
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- inicio -->
+                          <div class="form-group">
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                            @if( isset($advogado) ) 
+                            @if( isset($requerente) ) 
                                 <input type="email"  class="form-control" value="{{$advogado->email or old('email')}}" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                             @else
                                 <input type="email"  class="form-control" value="default@example.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                             @endif
+                           
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="banco" class="col-md-4 control-label">Banco</label>
+
+                            <div class="col-md-6">
+                                <select id="banco" name="banco" data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                <option>Selecione um banco</option>
+                                @foreach($bancos as $banco)
+                                    <option value='{{$banco}}' 
+                                            @if(isset($advogado) && $advogado->banco == $banco)
+                                                selected
+                                            @endif
+                                            >{{$banco}}</option>
+                                @endforeach
+                                </select> 
+                         
+                            </div>
+                        </div>
+                      
+                        <!-- fim -->
+                        <div class="form-group">
+                            <label for="agencia" class="col-md-4 control-label">Agência</label>
+
+                            <div class="col-md-6">
+                                <input id="agencia" name="agencia"  type="text" class="form-control" name="agencia" value="{{$advogado->agencia or old('agencia')}}">
+
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="conta" class="col-md-4 control-label">Conta</label>
+
+                            <div class="col-md-6">
+                                <input id="conta"  name="conta"  type="text" class="form-control" name="conta" value="{{$advogado->conta or old('conta')}}">
+
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="tipo" class="col-md-4 control-label">Tipo</label>
+
+                            <div class="col-md-6">
+                                <input id="tipo" type="text" class="form-control" name="tipo" value="{{$advogado->tipo or old('tipo')}}">
+
+                            </div>
+                        </div>
+
+                        
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

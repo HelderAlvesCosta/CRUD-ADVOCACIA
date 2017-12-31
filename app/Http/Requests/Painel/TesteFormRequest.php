@@ -4,7 +4,7 @@ namespace App\Http\Requests\Painel;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdvogadoFormRequest extends FormRequest
+class TesteFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,20 +23,19 @@ class AdvogadoFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-           'nome'        => 'required|min:15|max:50',
-           'oab'         => 'required',
-           'uf'          => 'required'
+         return [
+           'nome'        => 'required|min:3|max:100',
+           'email'        => 'required|min:3|max:100',
+             
         ];
+  
     }
     
     public function messages(){
         return[
             'nome.required'      => 'O campo Nome é de preenchimento obrigatório',
-            'nome.min'           => 'O campo Nome deve ter no mínimo 15 caracteres',
-            'oab.required'       => 'O campo OAB é de preenchimento obrigatório',
-            'uf.required'        => 'O campo UF é de preenchimento obrigatório'
-           
+            'email.required'      => 'O campo E-mail é de preenchimento obrigatório',
+            
             ];
     }
 }

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Advogado extends Model
 {
      protected $fillable =[
-                  'nome','oab','uf','cidade','telefone','email'
+                  'nome','oab','uf','telefone','email',
+                  'banco','agencia','conta','tipo'
+     
     ];
 }

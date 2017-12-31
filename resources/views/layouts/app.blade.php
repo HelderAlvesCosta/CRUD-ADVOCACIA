@@ -11,8 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
-       
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+  <!--EU link rel="stylesheet"  href="{{url('assets/painel/bootstrap-3.3.7-dist/css/app.css')}}">  -->
+
 </head>
 <body>
     <div id="app">
@@ -46,36 +47,42 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
-                      <!--      <li><a href="{{ route('register')}}">Register</a></li>  -->
-                        @else
-                           <a class="navbar-brand" href="{{route('register')}}">
+                       <!--   <li><a href="{{ route('register')}}">Register</a></li>  -->
+                   
+                       @else
+                         <!--  <a class="navbar-brand" href="{{route('register')}}">
                                 Usuários
-                            </a> 
-                            <a class="navbar-brand" href="{{route('escritorios.edit',1)}}">
-                                Escritório
-                            </a> 
-                            <a class="navbar-brand" href="{{ url('/painel/advogados') }}">
-                                Advogados
-                            </a> 
-                            <a class="navbar-brand" href="{{ url('/painel/corretores') }}">
-                                Corretores
-                            </a> 
-                            <a class="navbar-brand" href="{{ url('/painel/requerentes') }}">
-                                Requerentes
-                            </a> 
-                            <a class="navbar-brand" href="{{ url('/painel/processos') }}">
-                                Processos
-                            </a> 
-                            <a class="navbar-brand" href="{{ url('/painel/lesoes') }}">
-                                Lesões
-                            </a> 
-                            <a class="navbar-brand" href="{{ url('/painel/grupovalores') }}">
-                                Grupo valores
-                            </a> 
-                            <a class="navbar-brand" href="{{ url('/painel/status') }}">
-                                    Status
-                            </a> 
-
+                            </a> -->  
+                         
+                         <li class="nav-item {{current_page('escritorios/1/edit') ? 'active' : '' }}">
+       <a class="nav-link" href="{{route('escritorios.edit',1)}}">Escritório</a>
+ </li>
+ <li class="nav-item {{current_page('advogados') ? ' active' : '' }}">
+       <a class="nav-link" href="{{ url('/painel/advogados') }}">Advogados</a>
+ </li>
+ <li class="nav-item {{current_page('corretores') ? ' active' : '' }}">
+       <a class="nav-link" href="{{ url('/painel/corretores') }}">Corretores</a>
+ </li>
+ <li class="nav-item {{current_page('requerentes') ? ' active' : '' }}">
+       <a class="nav-link" href="{{ url('/painel/requerentes') }}">Requerentes</a>
+ </li>
+ <li class="nav-item {{current_page('processos') ? ' active' : '' }}">
+       <a class="nav-link" href="{{ url('/painel/processos') }}">Processos</a>
+ </li>
+ <li class="nav-item {{current_page('lesoes') ? ' active' : '' }}">
+       <a class="nav-link" href="{{ url('/painel/lesoes') }}">Lesões</a>
+ </li>
+ <li class="nav-item {{current_page('grupovalores') ? ' active' : '' }}">
+       <a class="nav-link" href="{{ url('/painel/grupovalores') }}">Grupo valores</a>
+ </li>
+ <li class="nav-item {{current_page('status') ? ' active' : '' }}">
+       <a class="nav-link" href="{{ url('/painel/status') }}">Status</a>
+ </li>
+ <li class="nav-item {{current_page('users') ? ' active' : '' }}">
+       <a class="nav-link" href="{{ url('/painel/users') }}">Usuários</a>
+ </li>
+ 
+ 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -88,7 +95,15 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-
+                                        
+                                        <a href="{{route('users.edit', Auth::user()->id ) }}">
+                                            Editar perfil
+                                        </a>
+          
+                                         <a href="{{ url('/painel/testes') }}">
+                                            Teste
+                                        </a>
+          
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
@@ -108,3 +123,8 @@
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
+<?php 
+  function current_page($uri = "/") { 
+    return strstr(request()->path(), $uri); 
+  } 
+?>

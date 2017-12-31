@@ -44,6 +44,7 @@
 
                             <div class="col-md-6">
                             <select id="sexo" name="sexo" data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                 <option>Selecione o sexo</option>
                                 @foreach($sexos as $sexo)
                                     <option value='{{$sexo}}' 
                                             @if(isset($requerente) && $requerente->sexo == $sexo)
@@ -59,13 +60,14 @@
 
                             <div class="col-md-6">
                             <select data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                <option>Selecione a nacionalidade</option>
                                 @foreach($nacionalidades as $nacionalidade)
                                     <option value='{{$nacionalidade}}' 
                                             @if(isset($requerente) && $requerente->nacionalidade == $nacionalidade)
                                                 selected
                                             @endif
                                             >{{$nacionalidade}}</option>
-                            @endforeach
+                                @endforeach
                             </select> 
                         
                             </div>
@@ -75,7 +77,8 @@
 
                             <div class="col-md-6">
                             <select data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
-                                @foreach($estado_civis as $estado_civil)
+                            <option>Selecione o estado civil</option>
+                            @foreach($estado_civis as $estado_civil)
                                     <option value='{{$estado_civil}}' 
                                             @if(isset($requerente) && $requerente->estado_civil == $estado_civil)
                                                 selected
@@ -190,9 +193,10 @@
 
                             <div class="col-md-6">
                                 <select id="banco" name="banco" data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                <option>Selecione um banco</option> 
                                 @foreach($bancos as $banco)
                                     <option value='{{$banco}}' 
-                                            @if(isset($corretore) && $corretore->banco == $banco)
+                                            @if(isset($requerente) && $requerente->banco == $banco)
                                                 selected
                                             @endif
                                             >{{$banco}}</option>

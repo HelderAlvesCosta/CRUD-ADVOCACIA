@@ -22,9 +22,13 @@
           <th>Nome</th>
           <th>OAB</th>
           <th>UF</th>
-          <th>Cidade</th>
           <th>Fone</th>
           <th>E-mail</th>
+          <th>Banco</th>
+          <th>Agencia</th>
+          <th>Conta</th>
+          <th>Tipo</th>
+       
           <th width="72px">Ações</th>
         </tr>
         </thead>
@@ -36,9 +40,13 @@
             <td>{{$advogado->nome}}</td>
             <td>{{$advogado->oab}}</td>     
             <td>{{$advogado->uf}}</td>
-            <td>{{$advogado->cidade}}</td>
             <td>{{$advogado->telefone}}</td>
             <td>{{$advogado->email}}</td>
+            <td>{{$advogado->banco}}</td>
+            <td>{{$advogado->agencia}}</td>
+            <td>{{$advogado->conta}}</td>
+            <td>{{$advogado->tipo}}</td>
+           
             <td>
                  <a href="{{route('advogados.edit',$advogado->id)}}" title="Editar advogado" class="actions edit">
                     <span class="glyphicon glyphicon-pencil"></span>

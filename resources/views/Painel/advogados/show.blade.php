@@ -10,9 +10,12 @@
     
 <p> <b>OAB:</b> {{$advogado->oab}} </p> 
 <p> <b>UF:</b> {{$advogado->uf}} </p> 
-<p> <b>Cidade:</b> {{$advogado->cidade}} </p> 
 <p> <b>Telefone:</b> {{$advogado->telefone}} </p> 
 <p> <b>E-Mail:</b> {{$advogado->email}} </p> 
+<p> <b>Banco:</b> {{$advogado->banco}} </p> 
+<p> <b>Agência:</b> {{$advogado->agencia}} </p> 
+<p> <b>Conta:</b> {{$advogado->conta}} </p> 
+<p> <b>Tipo:</b> {{$advogado->tipo}} </p> 
 
 <hr>
 @if( isset($errors) && count($errors) > 0  )
@@ -23,7 +26,7 @@
 @endif
 
 {!!Form::open(['route' => ['advogados.destroy', $advogado->id],'method' => 'DELETE' ])!!}
-    {!!Form::submit("Deletar Advogado: $advogado->name",['class' => 'btn btn-danger'])!!}
+    {!!Form::submit("Deletar Advogado: $advogado->nome",['class' => 'btn btn-danger'])!!}
 {!!Form::close()!!}
       
     

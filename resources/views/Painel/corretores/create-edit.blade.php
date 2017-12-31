@@ -144,6 +144,7 @@
                             <div class="col-md-6">
                               <!--  <input id="banco" type="text" class="form-control" name="banco" value="{{$corretore->banco or old('banco')}}"> -->
                                 <select id="banco" name="banco" data-placeholder="Your Favorite Types of Bear" class="chosen-select-width" tabindex="15">
+                                <option>Selecione um banco</option>
                                 @foreach($bancos as $banco)
                                     <option value='{{$banco}}' 
                                             @if(isset($corretore) && $corretore->banco == $banco)

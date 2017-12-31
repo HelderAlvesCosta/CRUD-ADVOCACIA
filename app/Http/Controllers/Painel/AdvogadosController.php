@@ -42,8 +42,12 @@ class AdvogadosController extends Controller
     public function create()
     {
         $title ='Cadastrar novo advogado';
+        $bancos =['Caixa Economica','Banco do Brasil','Bradesco','Itaú','Santander',
+            'HSBC','Banrisul','BNB','Banestes','CitiBank','Banco da Amazônia','BRB',
+            'Safra','BicBanco'];
+
         $uf = $this->uf;        
-        return view('painel.advogados.create-edit',compact('title','uf'));
+        return view('painel.advogados.create-edit',compact('title','uf','bancos'));
     }
 
     /**
@@ -90,8 +94,12 @@ class AdvogadosController extends Controller
         $advogado = $this->advogado->find($id);
         
         $title = "Editar advogado: {$advogado->nome}";
+        $bancos =['Caixa Economica','Banco do Brasil','Bradesco','Itaú','Santander',
+            'HSBC','Banrisul','BNB','Banestes','CitiBank','Banco da Amazônia','BRB',
+            'Safra','BicBanco'];
+
         $uf = $this->uf;
-        return view('painel.advogados.create-edit',compact('title','advogado','uf'));
+        return view('painel.advogados.create-edit',compact('title','advogado','uf','bancos'));
     }
 
     /**

@@ -62,7 +62,15 @@ class ProcessosController extends Controller
         $advogados = $this->advogado->all();
         $lesoes = $this->lesoe->all();
       
-        return view('painel.processos.create-edit',compact('title','requerentes','advogados','lesoes'));
+        $estado_civis =['Solteiro','Casado','Separado','Divorciado','Viúvo'];
+        $sexos =['Masculino','Feminino'];
+        $nacionalidades =['Brasileira','Estrangeira'];
+        $bancos =['Caixa Economica','Banco do Brasil','Bradesco','Itaú','Santander',
+            'HSBC','Banrisul','BNB','Banestes','CitiBank','Banco da Amazônia','BRB',
+            'Safra','BicBanco'];
+
+        
+        return view('painel.processos.create-edit',compact('title','requerentes','advogados','lesoes','estado_civis','sexos','nacionalidades','bancos'));
     }
 
     /**

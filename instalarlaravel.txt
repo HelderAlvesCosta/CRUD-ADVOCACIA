@@ -1,0 +1,10 @@
+1 - Instalar Composer.exe
+
+2 - c:\xampp\htdocs:> composer create-project laralvel/laravel advoga2 --prefer -dist
+
+3 - Testar a url: localhost/advoga2/public
+
+4 - Se não aparecer nada em: localhost/advoga2/public
+    entao digitar comando no prompt  > sudo chmod -R 755 storage    OU
+                                     > sudo chmod -R 755 storage
+5-Copiar as pastas de advoga para advoga2

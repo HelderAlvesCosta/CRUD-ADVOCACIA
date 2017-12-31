@@ -56,7 +56,8 @@ class StatusController extends Controller
     {
         
         $dataForm = $request->all();
-     
+       
+
         $insert = $this->statu->create($dataForm);
         if ( $insert )
             return redirect()->route('status.index');
