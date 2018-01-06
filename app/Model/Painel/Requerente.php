@@ -8,7 +8,7 @@ class Requerente extends Model
 {
      protected $fillable =[
                   'nome','sexo','nacionalidade','estado_civil','profissao',
-                  'rg','cpf','endereco','bairro','cidade','uf','cep',
+                  'rg','cpf','endereco','bairro','cep',
                   'telefone','email','banco','agencia','conta','tipo'
       
     ];

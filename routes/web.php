@@ -6,8 +6,9 @@ use App\Model\Painel\Processo;
 use App\Model\Painel\Statu;
 use App\Model\Painel\User;
 use App\Model\Painel\Teste;
+use App\Model\Painel\Task;
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,10 +106,11 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 ////////////////////
 
+Route::post('posts/changeStatus', array('as' => 'changeStatus', 'uses' => 'PostsController@changeStatus'));
+Route::resource('/painel/requerentes', 'Painel\RequerentesController');
 Route::resource('/painel/advogados', 'Painel\AdvogadosController');
 Route::resource('/painel/escritorios', 'Painel\EscritoriosController');
 Route::resource('/painel/corretores', 'Painel\CorretoresController');
-Route::resource('/painel/requerentes', 'Painel\RequerentesController');
 Route::resource('/painel/status', 'Painel\StatusController');
 Route::resource('/painel/processos', 'Painel\ProcessosController');
 Route::resource('/painel/grupovalores', 'Painel\GrupoValoresController');
@@ -254,3 +256,58 @@ Route::post( '/searchTeste', function () {
         }
                 
 } );
+
+////////////////////////////// INICIO
+        Route::get('/tasks/{task_id?}',function($task_id){
+            $task = Task::find($task_id);
+
+            return Response::json($task);
+        });
+
+        Route::post('/tasks',function(Request $request){
+            $task = App\Model\Painel\Task::create($request->all());
+
+            return Response::json($task);
+        });
+        
+        Route::put('/tasks/{task_id?}',function(Request $request,$task_id){
+            $task = Task::find($task_id);
+
+            $task->task = $request->task;
+            $task->description = $request->description;
+
+            $task->save();
+
+            return Response::json($task);
+        });
+
+        Route::delete('/tasks/{task_id?}',function($task_id){
+            $task = Task::destroy($task_id);
+
+            return Response::json($task);
+        });
+        
+     //   Route::get('/', function () {
+        Route::get('/painel/tasks', function () {
+           $tasks = Task::all();
+          return View::make('painel.tasks.index')->with('tasks',$tasks);
+        
+       //    return view('painel.testes.index',cocmpact('tasks'));
+
+        });
+////////////////////////////// FIM
+
+//      Route::resource('/requerents', 'Painel\RequerentsController');
+
+        Route::post('/requerents',function(Request $request){
+            $requerente = App\Model\Painel\Requerente::create($request->all());
+
+            return Response::json($requerente);
+        });
+        
+        Route::post('/advogados',function(Request $request){
+            $advogado = App\Model\Painel\Advogado::create($request->all());
+
+            return Response::json($advogado);
+        });
+        

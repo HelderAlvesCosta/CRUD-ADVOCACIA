@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Painel;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -9,9 +10,10 @@ use App\Model\Painel\Requerente;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
 use App\Http\Requests\Painel\RequerenteFormRequest;
+use Response;
 
 
-class RequerentesController extends Controller
+class RequerentsController extends Controller
 {
     
     private $requerente;
@@ -67,12 +69,14 @@ class RequerentesController extends Controller
      
         $insert = $this->requerente->create($dataForm);
         if ( $insert )
-            return redirect()->route('requerentes.index');
+          //  return redirect()->route('requerentes.index');
+          return redirect()->route('requerente.index');
         else
             return redirect()->route('requerente.create');
         
     }
 
+   
     /**
      * Display the specified resource.
      *

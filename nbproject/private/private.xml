@@ -12,12 +12,12 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/processos/requerente_edit.blade.php</file>
             <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/processos/create-edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/public/css/app.css</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/processos/processo_edit.blade.php</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/templlates/template.blade_1.php</file>
             <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/templlates/template.blade.php</file>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/processos/create-edit.blade_1.php</file>
-            <file>file:/C:/xampp/htdocs/crud_advocacia/public/assets/painel/css/style.css</file>
+            <file>file:/C:/xampp/htdocs/crud_advocacia/resources/views/Painel/corretores/create-edit.blade.php</file>
         </group>
     </open-files>
 </project-private>

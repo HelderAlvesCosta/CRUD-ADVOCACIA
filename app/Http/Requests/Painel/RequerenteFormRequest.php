@@ -53,8 +53,6 @@ class RequerenteFormRequest extends FormRequest
             'bairro.required'    => 'O campo Bairro é de preenchimento obrigatório',
             'bairro.max'         => 'O campo Bairro tem no máximo 40 caracteres',
           
-            'uf.required'        => 'O campo UF é de preenchimento obrigatório',
-            'cidade.required'    => 'O campo Cidade é de preenchimento obrigatório',
             'cep.required'       => 'O campo Cep é de preenchimento obrigatório',
             
             'email.max'          => 'O campo E-mail tem no máximo 100 caracteres',
