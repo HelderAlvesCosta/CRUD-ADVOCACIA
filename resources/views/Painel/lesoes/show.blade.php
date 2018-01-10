@@ -8,7 +8,9 @@
     Lesão: <b>{{$lesoe->nome}}</b> 
 </h1>
     
-<p> <b>Número:</b> {{$lesoe->numero}} </p> 
+<p> <b>Número:</b> {{$lesoe->id}} </p> 
+<p> <b>Grupo:</b> {{$lesoe->grupo_id}} </p> 
+<p> <b>Número:</b> {{$lesoe->descricao}} </p> 
 
 <hr>
 @if( isset($errors) && count($errors) > 0  )

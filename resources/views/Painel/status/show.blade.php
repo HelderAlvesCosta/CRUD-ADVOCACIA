@@ -8,7 +8,8 @@
     Status: <b>{{$statu->descricao}}</b> 
 </h1>
     
-<p> <b>Endereço:</b> {{$statu->endereco}} </p> 
+<p> <b>Código:</b> {{$statu->id}} </p> 
+<p> <b>Descrição:</b> {{$statu->descricao}} </p> 
 
 <hr>
 @if( isset($errors) && count($errors) > 0  )

@@ -48,6 +48,7 @@
             <td>{{$advogado->tipo}}</td>
            
             <td>
+                
                  <a href="{{route('advogados.edit',$advogado->id)}}" title="Editar advogado" class="actions edit">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 

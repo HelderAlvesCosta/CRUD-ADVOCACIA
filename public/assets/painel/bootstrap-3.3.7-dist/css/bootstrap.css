@@ -6759,4 +6759,7 @@ button.close {
     display: none !important;
   }
 }
+.table tbody tr:hover td, .table tbody tr:hover th {
+    background-color: #FF4136;
+}
 /*# sourceMappingURL=bootstrap.css.map */

@@ -5,7 +5,7 @@
 
 <h1 class="title-pg">
      <a href="{{route('grupovalores.index')}}"> <span class='glyphicon glyphicon-fast-backward'> </span> </a>
-    Corretor: <b>{{$grupovalore->nome}}</b> 
+    Grupo de valor: <b>{{$grupovalore->id}}</b> 
 </h1>
     
 <p> <b>Grupo:</b> {{$grupovalore->id}} </p> 

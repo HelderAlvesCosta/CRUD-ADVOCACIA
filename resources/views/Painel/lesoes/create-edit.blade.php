@@ -3,9 +3,9 @@
 
 @section('Content')
 
-<h1 class="title-pg">
-    <a href="{{route('lesoes.index')}}"> <span class='glyphicon glyphicon-fast-backward'> </span> </a>
-    Gestão Lesões: <b> {{$lesoe->id or 'Novo'}}</b>
+<h1 class="title-pg" align="center">
+    <a href="{{route('lesoes.index')}}" ><span class='glyphicon glyphicon-fast-backward'></a>
+    Gestão Lesões: <font style="color:red;" size="3"> <b>{{$lesoe->id or '<Novo>'}}</b> </font>
 </h1>
 
 @if( isset($errors) && count($errors) > 0  )
@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-md-9 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Lesão</div>
+                <div class="panel-heading"><font style="color:red;" size="3"> <b>Lesão</b> </font></div>
 
                 <div class="panel-body">
                         <div class="form-group">

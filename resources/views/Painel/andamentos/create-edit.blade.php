@@ -3,9 +3,9 @@
 
 @section('Content')
 
-<h1 class="title-pg">
-    <a href="{{route('andamentos.index',$process_id)}}"> <span class='glyphicon glyphicon-fast-backward'> </span> </a>
-    Gestão Andamento: <b> {{$processos->numero or 'Novo'}}</b>
+<h1 class="title-pg" align="center">
+    <a href="{{route('andamentos.index')}}" ><span class='glyphicon glyphicon-fast-backward'> </a>
+    Gestão Andamento: <font style="color:red;" size="3"> <b>{{$processos->numero or '<Novo>'}}</b> </font>
 </h1>
 
 @if( isset($errors) && count($errors) > 0  )
@@ -25,9 +25,9 @@
 
  <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-0">
+        <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Andamento do Processo</div>
+                <div class="panel-heading"><font style="color:red;" size="3"> <b>Andamento do Processo</b> </font></div>
 
                 <div class="panel-body">
 

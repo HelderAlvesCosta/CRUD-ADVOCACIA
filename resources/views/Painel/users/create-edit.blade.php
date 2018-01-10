@@ -3,9 +3,10 @@
 
 @section('Content')
 
-<h1 class="title-pg">
-    <a href="{{route('users.index')}}"> <span class='glyphicon glyphicon-fast-backward'> </span> </a>
-    Gestão Usuário: <b> {{$user->name or 'Novo'}}</b>
+
+<h1 class="title-pg" align="center">
+    <a href="{{route('users.index')}}" > <span class='glyphicon glyphicon-fast-backward'> </a>
+    Gestão Usuário: <font style="color:red;" size="3"> <b>{{$user->name or  '<Novo>'}}</b> </font>
 </h1>
 
 @if( isset($errors) && count($errors) > 0  )
@@ -25,9 +26,9 @@
 
  <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-0">
+        <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dados do usuário</div>
+                <div class="panel-heading"><font style="color:red;" size="3"> <b>Dados do Usuário</b> </font></div>
 
                 <div class="panel-body">
 

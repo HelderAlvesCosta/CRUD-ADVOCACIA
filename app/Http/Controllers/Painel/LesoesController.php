@@ -75,10 +75,10 @@ class LesoesController extends Controller
      */
     public function show($id)
     {
-        $lesoes = $this->lesoe->find($id);
+        $lesoe = $this->lesoe->find($id);
         $title = "Grupo valor: {$lesoe->id}";
     
-        return view('painel.lesoes.show',compact('lesoes','title'));
+        return view('painel.lesoes.show',compact('lesoe','title'));
 
     }
 

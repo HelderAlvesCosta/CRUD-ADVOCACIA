@@ -1,7 +1,7 @@
-   <h1 class="title-pg">
-              <a href="{{route('requerentes.index')}}"> </a>
-              Gestão Requerente: <font style="color:red;" size="3">  {{$requerente->nome or '<Novo>'}}</font>
-          </h1>
+    <h1 class="title-pg">
+        <a href="{{route('requerentes.index')}}"> </a>
+        Gestão Requerente: <font style="color:red;" size="3">  {{$requerente->nome or '<Novo>'}}</font>
+    </h1>
 
           @if( isset($errors) && count($errors) > 0  )
               <div class="alert alert-danger"> </div>    

@@ -3,10 +3,11 @@
 
 @section('Content')
 
-<h1 class="title-pg">
-    <a href="{{route('escritorios.index')}}"> <span class='glyphicon glyphicon-fast-backward'> </span> </a>
-    Gestão Escritorio: <b> {{$escritorio->nome or 'Novo'}}</b>
+<h1 class="title-pg" align="center">
+    <a href="{{route('escritorios.index')}}" > </a>
+    Gestão Escritório: <font style="color:red;" size="3"> <b>{{'<Alterar>'}}</b> </font>
 </h1>
+
 
 @if( isset($errors) && count($errors) > 0  )
     <div class="alert alert-danger"> </div>    
@@ -25,7 +26,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dados do Escritório</div>
+                
+                <div class="panel-heading"><font style="color:red;" size="3"> <b>Dados do Escritório</b> </font>
+                    </div>
 
                 <div class="panel-body">
                     <div class="form-group">

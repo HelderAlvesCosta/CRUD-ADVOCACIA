@@ -13,7 +13,7 @@ use App\Http\Requests\Painel\RequerenteFormRequest;
 use Response;
 
 
-class RequerentsController extends Controller
+class RequerentesController extends Controller
 {
     
     private $requerente;
