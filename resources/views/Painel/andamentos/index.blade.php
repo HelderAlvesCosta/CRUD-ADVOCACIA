@@ -4,14 +4,14 @@
 @section('Content')
     <h1 class="title-pg">{{$title}}</h1>
     
-    <a href="{{route('andamentos.create',$processo_id)}}" class="btn btn-primary btn-add"><span class="glyphicon glyphicon-plus"> </span>Cadastrar </a>  
+    <a href="{{route('andamentos.create',$processo_id)}}" class="btn btn-success btn-add"><span class="glyphicon glyphicon-plus"> </span>Cadastrar </a>  
   
     <table class="table table-hover table-striped table-condensed"> 
   
-        <tr>
-          <th width="100px">Data</th>
-          <th>Status</th>
-          <th width="72px">Ações</th>
+        <tr bgcolor="#CCC" style="color:#fff;">
+          <th width="100px"><b>DATA</b></th>
+          <th ><b>STATUS</b></th>
+          <th width="100"><b>AÇÕES</b></th>
         </tr>
       
         @foreach($andamentos as $andamento)
@@ -26,10 +26,10 @@
             @endforeach
      
             <td>
-                 <a href="{{route('andamentos.edit',[$andamento->processo_id,$andamento->data])}}" title="Editar andamento" class="actions edit">
+                 <a href="{{route('andamentos.edit',[$andamento->processo_id,$andamento->data])}}" title="Editar andamento" class="btn btn-primary btn-add">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
-                <a href="{{route('andamentos.show',$andamento->processo_id)}}" title="Visualisar andamento"  class="actions delete">
+                <a href="{{route('andamentos.show',$andamento->processo_id)}}" title="Visualisar andamento"  class="btn btn-primary btn-add">
                     <span class=" glyphicon glyphicon-eye-open"></span>
                 </a> 
             </td>     

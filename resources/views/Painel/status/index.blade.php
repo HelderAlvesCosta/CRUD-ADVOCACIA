@@ -17,9 +17,9 @@
   
     <table id="tabela" class="table table-hover table-striped table-condensed"> 
         <thead>
-        <tr>
-          <th>Descrição</th>
-          <th width="72px">Ações</th>
+        <tr bgcolor="#CCC" style="color:#fff;">
+            <th ><B>DESCRIÇÃO</b></th>
+          <th width="100px"><b>AÇÕES</b></th>
         </tr>
         </thead>
        
@@ -29,10 +29,10 @@
        <tr>
             <td>{{$statu->descricao}}</td>
             <td>
-                 <a href="{{route('status.edit',$statu->id)}}" title="Editar status"  class="actions edit">
+                 <a href="{{route('status.edit',$statu->id)}}" title="Editar status"  class="btn btn-primary btn-add">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
-                <a href="{{route('status.show',$statu->id)}}" title="Visualisar status"  class="actions delete">
+                <a href="{{route('status.show',$statu->id)}}" title="Visualisar status"  class="btn btn-success btn-add">
                     <span class=" glyphicon glyphicon-eye-open"></span>
                 </a> 
             </td>     

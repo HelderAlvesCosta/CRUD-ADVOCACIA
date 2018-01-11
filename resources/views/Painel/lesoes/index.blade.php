@@ -18,10 +18,10 @@
    <!-- <table class="table table-condensed table-striped"> -->
     <table id="tabela" class="table table-hover table-striped table-condensed"> 
         <thead>
-        <tr>
-          <th>Número</th>
-          <th>Descrição</th>
-          <th width=72">Ações</th> 
+        <tr bgcolor="#CCC" style="color:#fff;">
+          <th ><b>NÚMERO</b></th>
+          <th ><b>DESCRIÇÃO</b></th>
+          <th width=100"><b>AÇÕES</b></th> 
         </tr>
         </thead>
         <tbody>
@@ -33,10 +33,10 @@
                <textarea name="" id="" cols="150" rows="2">{{$lesoe->descricao}}</textarea>
             </td>
             <td>
-                <a href="{{route('lesoes.edit',$lesoe->id)}}"  title="Editar lesão"  class="actions edit">
+                <a href="{{route('lesoes.edit',$lesoe->id)}}"  title="Editar lesão"  class="btn btn-primary btn-add">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
-                <a href="{{route('lesoes.show',$lesoe->id)}}" title="Visualisar lesão"  class="actions delete">
+                <a href="{{route('lesoes.show',$lesoe->id)}}" title="Visualisar lesão"  class="btn btn-success btn-add">
                     <span class=" glyphicon glyphicon-eye-open"></span>
                 </a> 
             </td>     

@@ -17,16 +17,16 @@
     <table id="tabela" class="table table-hover table-striped table-condensed">     
         
         <thead>
-        <tr>
-          <th>Nome</th>
-          <th>RG</th>
-          <th>CPF</th>
-          <th>Endereço</th>
-          <th>Bairro</th>
-          <th>Cidade</th>
+        <tr bgcolor="#CCC" style="color:#fff;">
+          <th ><b>NOME</b></th>
+          <th ><b>RG</b></th>
+          <th ><b>CPF</b></th>
+          <th ><b>ENDEREÇO</b></th>
+          <th ><b>BAIRRO</b></th>
+          <th ><b>CIDADE</b></th>
         
       
-          <th width="72px">Ações</th>
+          <th bgcolor="#CCC" width="100"><b>AÇÕES</b></th>
         </tr>
         </thead>
         <tbody>
@@ -41,10 +41,10 @@
             <td>{{$requerente->cidade}}</td>
         
             <td>
-                 <a href="{{route('requerentes.edit',$requerente->id)}}" title="Editar requerente" class="actions edit">
+                 <a href="{{route('requerentes.edit',$requerente->id)}}" title="Editar requerente" class="btn btn-primary btn-add">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
-                <a href="{{route('requerentes.show',$requerente->id)}}" title="Visualisar requerente"  class="actions delete">
+                <a href="{{route('requerentes.show',$requerente->id)}}" title="Visualisar requerente"  class="btn btn-success btn-add">
                     <span class=" glyphicon glyphicon-eye-open"></span>
                 </a> 
             </td>     

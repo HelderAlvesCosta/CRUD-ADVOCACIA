@@ -8,10 +8,10 @@
   
     <table id="tabela" class="table table-hover table-striped table-condensed"> 
         <thead>
-        <tr>
-          <th>Grupo</th>
-          <th>Valor</th>
-          <th width="72px">Ações</th>
+        <tr bgcolor="#CCC" style="color:#fff;">
+          <th ><b>GRUPO</b></th>
+          <th ><b>VALOR</b></th>
+          <th width="100px"><b>AÇÕES</b></th>
         </tr>
         </thead>
         <tbody>
@@ -22,10 +22,10 @@
             <td>R$ {{number_format($grupovalore->valor,2,",",".")}}</td> 
             
             <td>
-                 <a href="{{route('grupovalores.edit',$grupovalore->id)}}" title="Editar grupo de valor" class="actions edit">
+                 <a href="{{route('grupovalores.edit',$grupovalore->id)}}" title="Editar grupo de valor" class="btn btn-primary btn-add">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
-                <a href="{{route('grupovalores.show',$grupovalore->id)}}" title="Visualisar grupo de valor"  class="actions delete">
+                <a href="{{route('grupovalores.show',$grupovalore->id)}}" title="Visualisar grupo de valor"  class="btn btn-success btn-add">
                     <span class=" glyphicon glyphicon-eye-open"></span>
                 </a> 
             </td>     

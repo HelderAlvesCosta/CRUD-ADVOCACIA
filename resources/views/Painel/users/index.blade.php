@@ -18,10 +18,10 @@
 <!--  <table class="table table-striped"> -->
     <table id="tabela" class="table table-hover table-striped table-condensed"> 
         <thead>
-        <tr>
-          <th>Nome</th>
-          <th>E-mail</th>
-          <th width="72px">Ações</th>
+        <tr bgcolor="#CCC" style="color:#fff;">
+            <th ><b>NOME</b></th>
+          <th ><b>E-MAIL</b></th>
+          <th width="100px"><b>AÇÕES</b></th>
         </tr>
         </thead>
         
@@ -33,10 +33,10 @@
            <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>     
             <td>
-                 <a href="{{route('users.edit',$user->id)}}" title="Editar usuário" class="actions edit">
+                 <a href="{{route('users.edit',$user->id)}}" title="Editar usuário" class="btn btn-primary btn-add">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
-        <a href="{{route('users.show',$user->id)}}" title="Visualisar usuário" class="actions delete">
+        <a href="{{route('users.show',$user->id)}}" title="Visualisar usuário" class="btn btn-success btn-add">
                     <span class=" glyphicon glyphicon-eye-open"></span>
                 </a> 
 

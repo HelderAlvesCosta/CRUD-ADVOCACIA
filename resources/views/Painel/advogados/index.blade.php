@@ -18,18 +18,18 @@
 <!--  <table class="table table-striped"> -->
     <table id="tabela" class="table table-hover table-striped table-condensed"> 
         <thead>
-        <tr>
-          <th>Nome</th>
-          <th>OAB</th>
-          <th>UF</th>
-          <th>Fone</th>
-          <th>E-mail</th>
-          <th>Banco</th>
-          <th>Agencia</th>
-          <th>Conta</th>
-          <th>Tipo</th>
+        <tr  bgcolor="#CCC" style="color:#fff;" >
+            <th ><b>NOME</b></th>
+          <th ><b>OAB</b></th>
+          <th ><b>UF</b></th>
+          <th ><b>FONE</b></th>
+          <th ><b>E-MAIL</b></th>
+          <th ><b>BANCO</b></th>
+          <th ><b>AGENCIA</b></th>
+          <th ><b>CONTA</b></th>
+          <th ><b>TIPO</b></th>
        
-          <th width="72px">Ações</th>
+          <th width="100x"><b>AÇÕES</b></th>
         </tr>
         </thead>
         
@@ -48,12 +48,13 @@
             <td>{{$advogado->tipo}}</td>
            
             <td>
+                           
                 
-                 <a href="{{route('advogados.edit',$advogado->id)}}" title="Editar advogado" class="actions edit">
-                    <span class="glyphicon glyphicon-pencil"></span>
+                 <a href="{{route('advogados.edit',$advogado->id)}}" title="Editar advogado" class="btn btn-primary btn-add">
+                    <span  class="glyphicon glyphicon-pencil"></span>
                 </a> 
-                <a href="{{route('advogados.show',$advogado->id)}}" title="Visualisar advogado" class="actions delete">
-                    <span class=" glyphicon glyphicon-eye-open"></span>
+                <a href="{{route('advogados.show',$advogado->id)}}" title="Visualisar advogado" class="btn btn-success btn-add" >
+                    <span class="glyphicon glyphicon-eye-open"></span>
                 </a> 
             </td>     
 

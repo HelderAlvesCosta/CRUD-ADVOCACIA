@@ -16,13 +16,13 @@
     
     <table id="tabela" class="table table-hover table-striped table-condensed">         
         <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Endereço</th>
-          <th>Bairro</th>
-          <th>Cidade</th>
-          <th>UF</th>
-          <th width="72px">Ações</th>
+            <tr bgcolor="#CCC" style="color:#fff;">
+          <th ><b>NOME</b></th>
+          <th ><b>ENDEREÇO</b></th>
+          <th ><b>BAIRRO</b></th>
+          <th ><b>CIDADE</b></th>
+          <th ><b>UF</b></th>
+          <th width="100px"><b>AÇÕES</b></th>
         </tr>
         </thead>
         <tbody>
@@ -35,10 +35,10 @@
             <td>{{$corretore->cidade}}</td>
             <td>{{$corretore->uf}}</td>
             <td>
-                 <a href="{{route('corretores.edit',$corretore->id)}}"  title="Editar corretor"  class="actions edit">
+                 <a href="{{route('corretores.edit',$corretore->id)}}"  title="Editar corretor"  class="btn btn-primary btn-add">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
-                <a href="{{route('corretores.show',$corretore->id)}}" title="Visualisar corretor"  class="actions delete">
+                <a href="{{route('corretores.show',$corretore->id)}}" title="Visualisar corretor"  class="btn btn-success btn-add">
                     <span class=" glyphicon glyphicon-eye-open"></span>
                 </a> 
             </td>     
